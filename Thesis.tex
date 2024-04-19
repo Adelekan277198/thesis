@@ -1,0 +1,975 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Content: The main file of the diploma thesis template (master's/engineering).
+% Prepared by: Tomasz Kubik <tomasz.kubik@pwr.edu.pl>
+% Date: January 2023
+% Version: 0.9
+% Requirements: pdflatex compiler
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,onecolumn,oneside,12pt,extrafontsizes]{memoir}
+% To prepare a printout for the archive, you can:
+% a) prepare a PDF in which two pages will be inserted on one physical page and print such a document on both sides (recommended approach)
+%
+% Such a document can be prepared via:
+% - printout from Adobe Acrobat Reader with the "Multiple" option - "Page size and handling" section
+% - use of psutils tools
+%
+% Windows (assuming the MiKTeX distribution includes the miktex-psutils-bin-x64-2.9 package):
+% "c:\Program Files\MiKTeX 2.9\miktex\bin\x64\pdf2ps.exe" Dyplom.pdf Dyplom.ps
+% "c:\Program Files\MiKTeX 2.9\miktex\bin\x64\psnup.exe" -2 Dyplom.ps Dyplom2.ps
+% "c:\Program Files\MiKTeX 2.9\miktex\bin\x64\ps2pdf.exe" Dyplom2.ps Dyplom2.pdf
+% Del Dyplom2.ps Dyplom.ps
+%
+% Linux:
+% pdf2ps Diplom.pdf - | psnup -2 | ps2pdf - Diplom2.pdf
+%
+% b) recompile the document by reducing the font size (this approach is not recommended because it changes the formatting of the document)
+%
+% To do this, just use the following commands (instead of documentclass from the first line):
+% \documentclass[a4paper,onecolumn,twoside,10pt]{memoir}
+% \renewcommand{\normalsize}{\fontsize{8pt}{10pt}\selectfont}
+
+%\usepackage[cp1250]{inputenc} % Please leave if the encoding of the edited files is cp1250
+\usepackage[utf8]{inputenc} % Please use instead of above if the encoding of the files you are editing is UTF8
+\usepackage[T1]{fontenc}
+\usepackage[polish,english]{babel} % The order of attributes is important here (for work in Polish, Polish should be at the end)
+%\DisemulatePackage{setspace}
+\usepackage{setspace}
+\usepackage{color,calc}
+%\usepackage{soul} % package with commands for underlining, underlining, highlighting text (rather unnecessary)
+\usepackage{ebgaramond} % garamond font package, needed only for the title page, must appear before the tgtermes package
+
+%% To obtain Polish letters in PDF (and not conglomerates) we use the tgterms font package.
+%% This package defines Times font clones with the following shapes: normal, bold, italic, bold italic.
+%% This package is missing a slanted font (similar to Italic).
+%% If the slanted font is used anywhere in the document (e.g. after using the \textsl{} command), then
+%% latex will substitute the standard font and report this in a warning.
+%% Also, tgtermes is a font for the text. Any mathematical formulas will be formatted in the default formula font.
+%% If patterns are to be formatted with different fonts, this must be explicitly declared.
+
+%% After installing the tgtermes package, you may need to update the information
+%% about available fonts and maps. You can do this from the console (as administrator)
+%% initexmf --admin --update-fndb
+%% initexmf --admin --mkmaps
+
+\usepackage{tgtermes}   
+\renewcommand*\ttdefault{txtt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Settings responsible for the way the document is broken
+%% and arrangement of floating elements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\hyphenpenalty=10000 % don't hyphenate words too often
+\clubpenalty=10000      % penalty for orphans
+\widowpenalty=10000     % don't leave widows
+%\brokenpenalty=10000 % do not break words between pages - you had to turn it off because it did not break lines in lstlisting
+%\exhyphenpenalty=999999 % don't share lines with hyphen - you had to turn it off because it didn't break lines in lstlisting
+\righthyphenmin=3			  % divide at least 3 letters
+
+%\tolerance=4500
+%\pretolerance=250
+%\hfuzz=1.5pt
+%\hbadness=1450
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.35}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Size settings: text, header and footer, margins
+%% for memoir class documents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\headsep}{10pt} 
+\setlength{\headheight}{15pt} % baselineskip value for 11pt font i.e. \small is 13.6pt
+\setlength{\footskip}{\headsep+\headheight}
+\setlength{\uppermargin}{\headheight+\headsep+1cm}
+\setlength{\textheight}{\paperheight-\uppermargin-\footskip-1.5cm}
+\setlength{\textwidth}{\paperwidth-5cm}
+\setlength{\spinemargin}{2.5cm}
+\setlength{\foremargin}{2.5cm}
+\setlength{\marginparsep}{2mm}
+\setlength{\marginparwidth}{2.3mm}
+%\settrimmedsize{297mm}{210mm}{*}
+%\settrims{0mm}{0mm}	
+\checkandfixthelayout[fixed] % necessary to arrange everything correctly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Line spacing, still, spacing settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\linespread{1}
+%\linespread{1.241}
+\setlength{\parindent}{14.5pt}
+
+
+\usepackage{multicol} % a package that allows you to create multi-column text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Table formatting packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tabularx}
+% Please use tabularx only. Please do not use other packages!!!
+% The document can certainly be edited without using them.
+%\usepackage{longtable}
+%\usepackage{ltxtable}
+%\usepackage{tabulary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Package for inserting code snippets
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings} 
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd\l@lstlisting{1.5em}{0em}{}{}
+\makeatother
+% Package provides lstlisting environment. It is highly customizable.
+% You can configure each listing individually or globally using the \lstset{} command.
+
+% It is recommended that the source code be output using the \ttfamily typewriter font
+% Because the source code, even when truncated to interesting parts, can be large, you should reduce the font size.
+% \small (for short snippets) and \footnotesize (for longer snippets) are recommended.
+
+% Additionally, you can declare the line numbering method during configuration. However, line numbering is recommended
+% only in cases where there are some references to specific lines in the text being edited.
+% If there are no such references, line numbering is unnecessary. Please do not use it then.
+% When enabling line numbering, pay attention to where these numbers appear.
+% Without changing additional parameters, they appear in the margin of the page (which is undesirable).
+
+\lstset{
+  basicstyle=\small\ttfamily, % or basicstyle=\footnotesize\ttfamily
+  %%columns=fullflexible,
+	%%showstringspaces=false,
+	%%showspaces=false,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, 
+  %%numbers=left,  % this and the lines below concern the numbering setting and how it is output
+  %%firstnumber=1, 
+  %%numberfirstline=true, 
+	%%xleftmargin=17pt,
+  %%framexleftmargin=17pt,
+  %%framexrightmargin=5pt,
+  %%framexbottommargin=4pt,
+	belowskip=.5\baselineskip,
+	literate={\_}{{\_\allowbreak}}1 % this declaration is useful if names containing underscores are to be escaped in the listing
+	}
+	
+	% If the edited file is not in cp1250 encoding, there is a problem with Polish characters appearing in the inserted code.
+	% Therefore, when working on files in UTF8 encoding, you need to declare the mapping as below (just unmark).
+	% Unfortunately, when using this mapping, you may encounter problems with syntax highlighting (see below).
+\lstset{literate=%-
+{ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ż}{{\.z}}1 {ź}{{\'z}}1 {Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ż}{{\.Z}}1 {Ź}{{\'Z}}1 
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+		{—}{{{\textemdash} }}1
+}%{\ \ }{{\ }}1}
+
+
+%% lstlisting allows you to style syntax highlighting of selected languages.
+%% This works by defining key words and how they are displayed.
+%% Because this is a simple mechanism, it is sometimes difficult to achieve the results that IDE tools can provide.
+%% However, in most cases the results achieved are satisfactory.
+
+
+%% lstlisting supports several of the most popular languages by default.
+%%\lstloadlanguages{% Check Documentation for further languages ...
+%%C,
+%%C++,
+%%csh,
+%%Java
+%%}
+%% Other languages must be defined. The following are examples of language and style definitions.
+
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+ 
+\lstdefinelanguage{JavaScript}{ 
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]'
+}
+\lstdefinestyle{JavaScriptStyle}{
+	language=JavaScript,
+	commentstyle=\color{javagreen}, % unfortunately, if keywords appear in the comment line, they will be colored
+	backgroundcolor=,%\color{lightgray}, % you can set a background color, but it is not recommended
+	extendedchars=true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=none,%left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=t
+}
+
+\lstdefinestyle{JavaStyle}{
+basicstyle=\footnotesize\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=none,%left,
+numberstyle=\tiny\color{black},
+stepnumber=2,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false,
+captionpos=t
+}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{dark-grey}{rgb}{0.4,0.4,0.4}
+% styl json
+\newcommand\JSONnumbervaluestyle{\color{blue}}
+\newcommand\JSONstringvaluestyle{\color{red}}
+
+\newif\ifcolonfoundonthisline
+
+\makeatletter
+
+\lstdefinestyle{json-style}  
+{
+	showstringspaces    = false,
+	keywords            = {false,true},
+	alsoletter          = 0123456789.,
+	morestring          = [s]{"}{"},
+	stringstyle         = \ifcolonfoundonthisline\JSONstringvaluestyle\fi,
+	MoreSelectCharTable =%
+	\lst@DefSaveDef{`:}\colon@json{\processColon@json},
+	basicstyle          = \footnotesize\ttfamily,
+	keywordstyle        = \ttfamily\bfseries,
+	numbers				= left, % comment out if line numbering is unnecessary
+	numberstyle={\footnotesize\ttfamily\color{dark-grey}},
+	xleftmargin			= 2em % comment out if line numbering is unnecessary
+}
+
+\newcommand\processColon@json{%
+	\colon@json%
+	\ifnum\lst@mode=\lst@Pmode%
+	\global\colonfoundonthislinetrue%
+	\fi
+}
+
+\lst@AddToHook{Output}{%
+	\ifcolonfoundonthisline%
+	\ifnum\lst@mode=\lst@Pmode%
+	\def\lst@thestyle{\JSONnumbervaluestyle}%
+	\fi
+	\fi
+	\lsthk@DetectKeywords% 
+}
+
+\lst@AddToHook{EOL}%
+{\global\colonfoundonthislinefalse}
+
+\makeatother
+
+%%\definecolor{red}{rgb}{0.6,0,0} % for strings
+%%\definecolor{blue}{rgb}{0,0,0.6}
+%%\definecolor{green}{rgb}{0,0.8,0}
+%%\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+%%
+%%\lstdefinestyle{sqlstyle}{
+%%language=SQL,
+%%basicstyle=\footnotesize\ttfamily, 
+%%numbers=left, 
+%%numberstyle=\tiny, 
+%%numbersep=5pt, 
+%%tabsize=2, 
+%%extendedchars=true, 
+%%breaklines=true, 
+%%showspaces=false, 
+%%showtabs=true, 
+%%xleftmargin=17pt,
+%%framexleftmargin=17pt,
+%%framexrightmargin=5pt,
+%%framexbottommargin=4pt,
+%%keywordstyle=\color{blue}, 
+%%commentstyle=\color{green}, 
+%%stringstyle=\color{red}, 
+%%}
+%%
+%%\lstdefinestyle{sharpcstyle}{
+%%language=[Sharp]C,
+%%basicstyle=\footnotesize\ttfamily, 
+%%numbers=left, 
+%%numberstyle=\tiny, 
+%%numbersep=5pt, 
+%%tabsize=2, 
+%%extendedchars=true, 
+%%breaklines=true, 
+%%showspaces=false, 
+%%showtabs=true, 
+%%xleftmargin=17pt,
+%%framexleftmargin=17pt,
+%%framexrightmargin=5pt,
+%%framexbottommargin=4pt,
+%%morecomment=[l]{//}, %use comment-line-style!
+%%morecomment=[s]{/*}{*/}, %for multiline comments
+%%showstringspaces=false, 
+%%morekeywords={  abstract, event, new, struct,
+                %%as, explicit, null, switch,
+                %%base, extern, object, this,
+                %%bool, false, operator, throw,
+                %%break, finally, out, true,
+                %%byte, fixed, override, try,
+                %%case, float, params, typeof,
+                %%catch, for, private, uint,
+                %%char, foreach, protected, ulong,
+                %%checked, goto, public, unchecked,
+                %%class, if, readonly, unsafe,
+                %%const, implicit, ref, ushort,
+                %%continue, in, return, using,
+                %%decimal, int, sbyte, virtual,
+                %%default, interface, sealed, volatile,
+                %%delegate, internal, short, void,
+                %%do, is, sizeof, while,
+                %%double, lock, stackalloc,
+                %%else, long, static,
+                %%enum, namespace, string},
+%%keywordstyle=\color{cyan},
+%%identifierstyle=\color{red},
+%%stringstyle=\color{blue}, 
+%%commentstyle=\color{green},
+%%}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages and commands used only to provide information about the commands and fonts used in this template.
+%% Normally not needed. Please mark the following declarations when editing your work!!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\usepackage{memlays} % extra layout diagrams, used in template for 'debugging', uses layouts package
+%%%\usepackage{layouts}
+%%\usepackage{printlen} % package for displaying values of defined lengths, used for 'debugging'
+%%\usepackage{enumitem} % numbering package 1.1 1.2 in the enumrate section
+%%\uselengthunit{pt}
+%%\makeatletter
+%%\newcommand{\showFontSize}{\f@size pt} % macro printing the current font size
+%%\makeatother
+% to show frames you could use:
+%\usepackage{showframe}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Formatting enumerated lists, bullets and custom environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% By default, bullets have declared characters that do not appear in tgtermes
+% To prevent latex from replacing characters from the standard font, you can substitute:
+% \DeclareTextCommandDefault{\textbullet}{\ensuremath{\bullet}}
+% \DeclareTextCommandDefault{\textasteriskcentered}{\ensuremath{\ast}}
+% \DeclareTextCommandDefault{\textperiodcentered}{\ensuremath{\cdot}}
+% However, an even better idea is to define environments using enumem
+\usepackage{enumitem} % a package that allows you to manage the formatting of enumerated lists
+\setlist{noitemsep,topsep=4pt,parsep=0pt,partopsep=4pt,leftmargin=*} % declared parameters allow you to obtain a 'compact' form of a bullet or enumeration
+\setenumerate{labelindent=0pt,itemindent=0pt,leftmargin=!,label=\arabic*.} % you can change \arabic to \alph if the calculations are to be with letters
+\setlistdepth{4} % we define the nesting depth of enumerated lists to 4 levels
+\setlist[itemize,1]{label=$\bullet$} % we define what symbol is to be used in the calculation at a given level
+\setlist[itemize,2]{label=\normalfont\bfseries\textendash}
+\setlist[itemize,3]{label=$\ast$}
+\setlist[itemize,4]{label=$\cdot$}
+\renewlist{itemize}{itemize}{4}
+
+%%%http://tex.stackexchange.com/questions/29322/how-to-make-enumerate-items-align-at-left-margin
+%\renewenvironment{enumerate}
+%{
+%\begin{list}{\arabic{enumi}.}
+%{
+%\usecounter{enumi}
+%%\setlength{\itemindent}{0pt}
+%%\setlength{\leftmargin}{1.8em}%{2zw} % 
+%%\setlength{\rightmargin}{0zw} %
+%%\setlength{\labelsep}{1zw} %
+%%\setlength{\labelwidth}{3zw} % 
+%\setlength{\topsep}{6pt}%
+%\setlength{\partopsep}{0pt}%
+%\setlength{\parskip}{0pt}%
+%\setlength{\parsep}{0em} % 
+%\setlength{\itemsep}{0em} % 
+%%\setlength{\listparindent}{1zw} % 
+%}
+%}{
+%\end{list}
+%}
+
+\makeatletter
+\renewenvironment{quote}{
+	\begin{list}{}
+	{
+	\setlength{\leftmargin}{1em}
+	\setlength{\topsep}{0pt}%
+	\setlength{\partopsep}{0pt}%
+	\setlength{\parskip}{0pt}%
+	\setlength{\parsep}{0pt}%
+	\setlength{\itemsep}{0pt}
+	}
+	}{
+	\end{list}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Package and commands for index generation
+%% (it is important that it appears before the hyperref package)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pdftex is able to generate an index (i.e. a list of entries with references to the pages on which these entries appear).
+% Generally, there are a lot of problems with the index, especially when Polish letters appear.
+% Then you need to use xinda.
+% Indexes are usually not used in diploma theses. That's why they are marked.
+%\DisemulatePackage{imakeidx}
+%\usepackage[makeindex,noautomatic]{imakeidx} % here we are saying that the index should not be generated automatically,
+%\makeindex
+%
+%\makeatletter
+%%%%\renewenvironment{theindex}
+							 %%%%{\vskip 10pt\@makeschapterhead{\indexname}\vskip -3pt%
+								%%%%\@mkboth{\MakeUppercase\indexname}%
+												%%%%{\MakeUppercase\indexname}%
+								%%%%\vspace{-3.2mm}\parindent\z@%
+								%%%%\renewcommand\subitem{\par\hangindent 16\p@ \hspace*{0\p@}}%%
+								%%%%\phantomsection%
+								%%%%\begin{multicols}{2}
+								%%%%%\thispagestyle{plain}
+								%%%%\parindent\z@                
+								%%%%%\parskip\z@ \@plus .3\p@\relax
+								%%%%\let\item\@idxitem}
+							 %%%%{\end{multicols}\clearpage}
+%%%%
+%\makeatother
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Metadata issues in the resulting PDF, hyperlinks, etc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The template was prepared mainly for pdflatex. Specific commands for PDF compilation have been inserted
+% in the conditional statement provided by the ifpdf package
+% If metadata contains commas or semicolons, the metadata is surrounded by single quotes by default.
+% You write about it at: https://tex.stackexchange.com/questions/3708/hyperref-enquotes-metadata
+% To get rid of these apostrophes, the hyperxmp package was used (loading several other packages)
+\usepackage{hyperxmp}
+\usepackage{ifpdf}
+%\newif\ifpdf \ifx\pdfoutput\undefined
+%\pdffalse % we are not running PDFLaTeX
+%\else
+%\pdfoutput=1 % we are running PDFLaTeX
+%\pdftrue \fi
+\ifpdf
+ \usepackage{datetime2} %INFO: package needed to obtain and format the date
+ \usepackage[pdftex,bookmarks,breaklinks,unicode]{hyperref}
+ \usepackage[pdftex]{graphicx}
+ \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png} % after declaring the extensions, you will be able to insert files with graphics without having to provide these extensions in their names
+\pdfcompresslevel=9
+\pdfoutput=1
+
+% INFO: A well-prepared PDF document is one that contains metadata.
+%       The metadata fields that will be included in the PDF document are declared below.
+%       Can be modified according to your needs
+\makeatletter
+\AtBeginDocument{  
+  \hypersetup{
+	pdfinfo={
+    Title = {\@title},
+    Author = {\@author},
+    Subject={\ifMaster Master\else Engineering\fi thesis},  
+    Keywords={\@kven}, 
+	Producer={}, 
+	CreationDate= {}, % should be inserted according to the syntax: {D:yyyymmddhhmmss}, e.g. D:20210208175600
+    ModDate={\pdfcreationdate},  % modification date will be the compilation date
+	Creator={pdftex},
+	}}
+}
+\pdftrailerid{} %Remove ID
+\pdfsuppressptexinfo15 %Suppress PTEX.Fullbanner and info of imported PDFs
+\makeatother
+\else             % if compilation is other than pdflatex
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.eps,.ps,.jpg,.mps,.png}
+\fi
+\sloppy
+
+% INFO: added to better break urles
+\def\UrlBreaks{\do\/\do-\do_} 
+% INFO: although you can declare the folders in which image files appear, it is recommended not to do so
+%\graphicspath{{rys01/}{rys02/}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Formatting the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INFO: Declaration of numbering depth
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\setsecnumdepth{subsection} 
+% INFO: Adding dots after section numbers
+\makeatletter
+\def\@seccntformat#1{\csname the#1\endcsname.\quad}
+\def\numberline#1{\hb@xt@\@tempdima{#1\if&#1&\else.\fi\hfil}}
+\makeatother
+% INFO: Chapter numbering and separators
+\renewcommand{\chapternumberline}[1]{#1.\quad}
+\renewcommand{\cftchapterdotsep}{\cftdotsep}
+
+
+%\usepackage{etoolbox} % odst�py w spisie tre�ci (jeden ze sposob�w ustawiania)
+%%\makeatletter
+%%\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-1\p@}}}{}{}
+%%\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{-1\p@}}}{}{}
+%%\pretocmd{\subsection}{\addtocontents{toc}{\protect\addvspace{-1\p@}}}{}{}
+%%\makeatother
+
+\makeatletter % spacing in the list between chapters
+\renewcommand*{\insertchapterspace}{%
+  \addtocontents{lof}{\protect\addvspace{3pt}}%
+  \addtocontents{lot}{\protect\addvspace{3pt}}%
+	\addtocontents{toc}{\protect\addvspace{3pt}} %
+  \addtocontents{lol}{\protect\addvspace{3pt}}}
+\makeatother 
+
+
+\setlength{\cftbeforechapterskip}{0pt} % INFO: space in the table of contents before the chapter, works in correlation with:
+\renewcommand{\aftertoctitle}{\afterchaptertitle\vspace{-4pt}} % 
+% https://stackoverflow.com/questions/3029271/latex-make-listoffigures-look-like-listoftables-or-lstlistoflistings
+%\renewcommand{\memchapinfo}[4]{%
+%  \addtocontents{lol}{\protect\addvspace{10pt}}
+%}
+
+%\cftsetindents{section}{1.5em}{2.3em}
+
+%\setbeforesecskip{10pt plus 0.5ex}%{-3.5ex \@plus -1ex \@minus -.2ex}
+%\setaftersecskip{10pt plus 0.5ex}%\onelineskip}
+%\setbeforesubsecskip{8pt plus 0.5ex}%{-3.5ex \@plus -1ex \@minus -.2ex}
+%\setaftersubsecskip{8pt plus 0.5ex}%\onelineskip}
+%\setlength\floatsep{6pt plus 2pt minus 2pt} 
+%\setlength\intextsep{12pt plus 2pt minus 2pt} 
+%\setlength\textfloatsep{12pt plus 2pt minus 2pt} 
+
+% INFO: Setting the space from the top in unnumbered chapters and lists:
+%       Table of contents, List of tables, List of figures, Subject index
+%\newlength{\linespace}
+%\setlength{\linespace}{-\beforechapskip-\topskip+\headheight+\topsep}
+%%%\makechapterstyle{noNumbered}{%
+%%%\renewcommand\chapterheadstart{\vspace*{\linespace}}
+%%%}
+%% the command above does what the commands below do for lists
+%\renewcommand*{\tocheadstart}{\vspace*{\linespace}}
+%\renewcommand*{\lotheadstart}{\vspace*{\linespace}}
+%\renewcommand*{\lofheadstart}{\vspace*{\linespace}}
+
+
+% INFO: Font for captions of tables, figures, listings
+\captionnamefont{\small}
+\captiontitlefont{\small}
+
+
+% INFO: Format the caption above the two-column listing
+\newcommand{\listingcaption}[1]
+{%
+\vspace*{\abovecaptionskip}\small 
+\refstepcounter{lstlisting}\hfill%
+Listing \thelstlisting: #1\hfill%\hfill%
+\addcontentsline{lol}{lstlisting}{\protect\numberline{\thelstlisting}#1}
+}%
+
+
+
+% INFO: Auxiliary mark for highlighting text in English
+\newcommand{\eng}[1]{(ang.~\emph{#1})}
+% INFO: Auxiliary macro for adding captions to drawings with indication of the source (without writing this source in the list of figures)
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1 \emph{�r�d�o:} #2%
+  }%
+}
+
+
+% INFO: Macro that allows you to change the way the chapter is written (please do not use it)
+%\def\printchaptertitle##1{\fonttitle \space \thechapter.\space ##1}
+
+% INFO: definitions of list labels and titles
+
+%\AtBeginDocument{% 
+        \addto\captionspolish{% 
+        \renewcommand{\tablename}{Tab.}%% INFO: Przedefiniowanie etykiet w podpisach tabel 
+}%} 
+
+%\AtBeginDocument{% 
+%        \addto\captionspolish{% 
+%        \renewcommand{\chaptername}{Rozdział}% INFO: Przedefiniowanie nazwy rozdziału, niepotrzebne, bo przy polskich ustawieniach językowych jest 'Rozdział'
+%}} 
+
+% Przedefiniowanie etykiet oraz nazw wykazu literatury, spisów, indeksu
+%\AtBeginDocument{% 
+        \addto\captionspolish{% 
+        \renewcommand{\figurename}{Rys.}%% INFO: Przedefiniowanie etykiet w podpisach rysunków 
+}%}
+
+%\AtBeginDocument{% 
+        \addto\captionspolish{% 
+        \renewcommand{\lstlistlistingname}{Spis listing�w}%% INFO: Przedefiniowanie nazwy spisu listingów
+}%} 
+\newlistof{lstlistoflistings}{lol}{\lstlistlistingname}
+
+
+%\AtBeginDocument{% 
+        \addto\captionspolish{% 
+        \renewcommand{\bibname}{Literatura}%% INFO: Przedefiniowanie nazwy wykazu literatury 
+}%}
+
+%\AtBeginDocument{% 
+        \addto\captionspolish{% 
+        \renewcommand{\listfigurename}{Spis rysunków}%% INFO: Przedefiniowanie nazwy spisu rysunków 
+}%}
+
+%\AtBeginDocument{% 
+        \addto\captionspolish{% 
+        \renewcommand{\listtablename}{Spis tabel}%% INFO: Przedefiniowanie nazwy spisu tabel 
+}%}
+
+%\AtBeginDocument{% 
+        \addto\captionspolish{% 
+\renewcommand\indexname{Indeks rzeczowy}%% INFO: Przedefiniowanie nazwy indeksu 
+}%}
+
+%\AtBeginDocument{% 
+%    \addto\captionspolish{
+%\renewcommand\abstractname{Streszczenie}%% INFO: Przedefiniowanie nazwy streszczenia, niepotrzebne, bo przy polskich ustawieniach językowych jest 'Streszczenie'
+%}%}
+
+%\AtBeginDocument{% 
+%    \addto\captionsenglish{
+%\renewcommand\abstractname{Abstract} 
+%}%}
+
+\renewcommand{\abstractnamefont}{\normalfont\Large\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Footer and header definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtopsmarks{headings}{%
+\nouppercaseheads % added at the beginning
+}{%
+\createmark{chapter}{both}{shownumber}{}{. \space}
+%\createmark{chapter}{left}{shownumber}{}{. \space}
+\createmark{section}{right}{shownumber}{}{. \space}
+}%use the new settings
+
+\makeatletter
+\copypagestyle{outer}{headings}
+\makeoddhead{outer}{}{}{\small\itshape\rightmark}
+\makeevenhead{outer}{\small\itshape\leftmark}{}{}
+\makeoddfoot{outer}{\small\@author:~\@titleShort}{}{\small\thepage}
+\makeevenfoot{outer}{\small\thepage}{}{\small\@author:~\@title}
+\makeheadrule{outer}{\linewidth}{\normalrulethickness}
+\makefootrule{outer}{\linewidth}{\normalrulethickness}{2pt}
+\makeatother
+
+% fix plain
+\copypagestyle{plain}{headings} % overwrite plain with outer
+\makeoddhead{plain}{}{}{} % remove right header
+\makeevenhead{plain}{}{}{} % remove left header
+\makeevenfoot{plain}{}{}{}
+\makeoddfoot{plain}{}{}{}
+
+\copypagestyle{empty}{headings} % overwrite plain with outer
+\makeoddhead{empty}{}{}{} % remove right header
+\makeevenhead{empty}{}{}{} % remove left header
+\makeevenfoot{empty}{}{}{}
+\makeoddfoot{empty}{}{}{}
+
+% INFO: declaration of a logical variable used to distinguish between engineering and master's thesis
+\newif\ifMaster % default false (i.e. by default we have an engineering job)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title page definition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+%School
+\newcommand\uczelnia[1]{\renewcommand\@uczelnia{#1}}
+\newcommand\@uczelnia{}
+%Department
+\newcommand\wydzial[1]{\renewcommand\@wydzial{#1}}
+\newcommand\@wydzial{}
+%Direction
+\newcommand\kierunek[1]{\renewcommand\@kierunek{#1}}
+\newcommand\@kierunek{}
+%Specialty
+\newcommand\specjalnosc[1]{\renewcommand\@specjalnosc{#1}}
+\newcommand\@specjalnosc{}
+%Title in English
+\newcommand\titleEN[1]{\renewcommand\@titleEN{#1}}
+\newcommand\@titleEN{}
+%Title short
+\newcommand\titleShort[1]{\renewcommand\@titleShort{#1}}
+\newcommand\@titleShort{}
+%Promotor
+\newcommand\promotor[1]{\renewcommand\@promotor{#1}}
+\newcommand\@promotor{}
+%Keywords
+\newcommand\kvpl[1]{\renewcommand\@kvpl{#1}}
+\newcommand\@kvpl{}
+\newcommand\kven[1]{\renewcommand\@kven{#1}}
+\newcommand\@kven{}
+%Command used in the summary
+\newcommand\mykeywords{\hspace{\absleftindent}%
+\parbox{\linewidth-2.0\absleftindent}{
+       \iflanguage{polish}{\textbf{Słowa kluczowe:} \@kvpl}{
+			 \iflanguage{english}{\textbf{Keywords:} \@kven}}{}}
+				}
+
+\def\maketitle{%
+  \pagestyle{empty}%
+%%\garamond 
+	\fontfamily{\ebgaramond@family}\selectfont % na stronie tytu�owej czcionka garamond
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Below, around the picture, the title and author are inserted.
+%% Title (with author) must appear in the area
+%% corresponding to the 110mmx75mm window whose upper left corner
+%% is located 77mm from the left and 111mm from the top of the page
+%% (this is what the cutout on the cover shows).
+%% The code below must be used exactly where it is.
+%% If the title does not fit in the window, change it as follows
+%% parameters of the commands used to make this long title
+%% pack into a window.
+%%
+%% The cover itself (color page with cutout, used to be available for download from teaching)
+%% should be cut 3mm from each edge.
+%% These 3mm were probably left for possible bleeds or a special binding.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\tmpfboxrule}
+\setlength{\tmpfboxrule}{\fboxrule}
+\setlength{\fboxsep}{2mm}
+\setlength{\fboxrule}{0mm} 
+%\setlength{\fboxrule}{0.1mm} %% INFO: If we want to see the frame, just unmark this line
+\setlength{\unitlength}{1mm}
+\begin{picture}(0,0)
+%\put(26,-124){\fbox{% settings for "cutted window"
+\put(20,-124){\fbox{% settings in the middle
+\parbox[c][71mm][c]{104mm}{\centering%\lineskip=34pt 
+{\fontsize{18pt}{20pt}\bfseries\selectfont \@titleEN}\\[5mm] % INFO: inserted title in English
+{\fontsize{18pt}{20pt}\bfseries\selectfont \@title}\\[10mm] % INFO: inserted title in Polish
+%\fontsize{16pt}{18pt}\selectfont AUTOR:\\[2mm]
+{\fontsize{16pt}{18pt}\selectfont \@author}}
+}
+}
+\end{picture}
+\setlength{\fboxrule}{\tmpfboxrule} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The rest of the page with the name of the university, department, field of study, specialization
+%% promoter, work evaluation (commented), city and year
+	{\vskip 9pt\centering
+		{\fontsize{20pt}{22pt}\bfseries\selectfont \@uczelnia}\\[5pt]
+		{\fontsize{16pt}{18pt}\bfseries\selectfont \@wydzial}\\[1pt]
+		  \hrule
+	}
+{\vskip 24pt\raggedright\fontsize{14pt}{16pt}\selectfont%
+\begin{tabular}{@{}ll}
+Field of study: & {\bfseries \@kierunek}\\
+Speciality: & {\bfseries \@specjalnosc}\\
+\end{tabular}\\[1.3cm]
+}
+{\vskip 29pt\centering{\fontsize{24pt}{26pt}\selectfont%
+\ifMaster
+{\fontsize{26pt}{28pt}\selectfont M}ASTER {\fontsize{26pt}{24pt}\selectfont T}HESIS\\[2.5cm]%
+\else 
+{\fontsize{26pt}{28pt}\selectfont E}GINEERING {\fontsize{26pt}{24pt}\selectfont T}HESIS\\[2.5cm]\fi
+}}
+	\vfill
+{\centering
+		{\fontsize{14pt}{16pt}\selectfont Supervisor}\\[2mm] 
+		{\fontsize{14pt}{16pt}\bfseries\selectfont \@promotor}\\[10mm] % INFO: name of supervisor
+%		&{\fontsize{16pt}{18pt}\selectfont GRADE:}\\[20mm] 
+% INFO: the above line has been commented because since the COVID-19 pandemic, works can be delivered without the supervisor's signature
+}
+\vspace{4cm}\noindent
+{\fontsize{12pt}{14pt}\selectfont Keywords: \@kven} % INFO: the title page includes only keywords in Polish (in which the work is written)
+\vspace{1.3cm}
+\hrule\vspace*{0.3cm}
+{\centering
+{\fontsize{14pt}{16pt}\selectfont \@date}\\[0cm]
+}
+%\ungaramond
+\normalfont
+ \cleardoublepage
+}
+\makeatother
+
+%\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+
+
+
+
+%\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning of the zone for making changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Document metadata
+%% - enter your own data here
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Mastertrue % INFO: comment this out if this is engineering thesis
+
+\title{Badanie ewolucji nazw miejsc towarzyszącej przekształceniu Edo w~Benin City przy użyciu
+narzędzi informatycznych}
+\titleShort{Studying the evolution of place names accompanying ...}
+\titleEN{Studying the evolution of place names accompanying the transformation of Edo into Benin City using IT tools}
+\author{Akeem Adedotun Adelekan}
+\uczelnia{Wrocław University of Science and Technology}
+\wydzial{Faculty of Information and Communication Technology}
+\kierunek{Computer Engineering}
+\specjalnosc{Machine learning} %% Is it correct?
+\promotor{dr inż.\ Tomasz Kubik}
+\kvpl{toponimy, informacja geoprzestrzenna, narzędzia programowe} % INFO: keywords in Polish
+\kven{toponyms, geospatial information, software tools} % INFO: keywords in English
+\date{WROCŁAW, 2024} % INFO: place, year of thesis submission
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Document structure
+%% - insert your own chapters here
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INFO: Using the \includeonly{} command you can select
+% 		of these parts (files with latex code) to be compiled.
+% 		This is especially useful when working on large documents.
+% 		Because the fewer parts are selected, the faster the compilation will be.
+% 		Please do not confuse this command with the \include{} command, which is used
+% 		to declare the full document structure (files with latex code).
+%\includeonly{abbreviations,chapter01}  
+
+\begin{document}
+% You can toggle the line spacing with the commands below. But please don't do this!!!
+%\SingleSpacing
+%\OnehalfSpacing
+%\DoubleSpacing
+
+%\settypeoutlayoutunit{cm} % for debugging
+%\typeoutstandardlayout    % prints information about settings to stdout
+
+%\frontmatter
+\pdfbookmark[0]{Title}{Title.1}
+\maketitle
+\clearpage
+% INFO: The CC license page defined below applies only to edited content.
+% 	The template itself can be used without having to cite its author.
+%	When writing a diploma thesis, this page can be deleted (and even should be deleted).
+%%%%\thispagestyle{empty}
+%%%%\mbox{}\vfill
+%%%%\noindent\begin{tabular}{@{}ll} Prepared by: & Tomasz Kubik \texttt{<tomasz.kubik@pwr.edu.pl>}\\
+ %%%%Date: & January 2023 
+ %%%%\end{tabular}\\[15mm]
+%%%%\noindent\includegraphics[width=3cm]{by-nc-sa}\newline
+%%%%{\normalfont 
+%%%%The text in this template is licensed under the Creative Commons license: \emph{Attribution -- Non-commercial -- Share Alike, 3.0 Polska}, Wrocław 2023. \\[2pt]
+%%%%This means that all submitted content may be copied and used for non-commercial purposes, and derivative works may be created based on it, provided that the author and the licensor are given. and granting derivative works the same license. The license text is available at: \url{http://creativecommons.org/licenses/by-nc-sa/3.0/pl/}.\\[2pt]
+%%%%The license does not apply to latex template code. The template itself (i.e. a set of prepared commands for formatting the document) can be used without mentioning its author. Therefore, when editing a diploma thesis, this page can be removed.
+%%%%}
+%%%%\clearpage
+
+% Subsequent parts of the document: summary, lists, abbreviations, chapters, appendices
+%\chapterstyle{noNumbered}
+% SUMMARY (please look inside for commented commands)
+\include{abstract}
+\pagestyle{outer}
+\clearpage
+% TABLE OF CONTENTS (will be generated automatically)
+\pdfbookmark[0]{Table of contents}{tableOfContents.1}%
+%%\phantomsection
+%%\addcontentsline{toc}{chapter}{Table of contents}
+\tableofcontents* 
+\clearpage
+% LIST OF FIGURES (will be generated automatically)
+\pdfbookmark[0]{List of figures}{listOfFigures.1} % if we want it in the table of contents, mark this line and unmark the lines below
+%%\phantomsection
+%%\addcontentsline{toc}{chapter}{List of figures}
+\listoffigures*
+\clearpage
+% LIST OF TABLES (will be generated automatically)
+\pdfbookmark[0]{List of tables}{listOfTables.1} %
+%%\phantomsection
+%%\addcontentsline{toc}{chapter}{List of tables}
+\listoftables*
+\clearpage
+% LIST OF LISTINGS (will be generated automatically)
+\pdfbookmark[0]{List of listings}{listOfListings.1} %
+%%\phantomsection
+%%\addcontentsline{toc}{chapter}{List of Listings}
+\lstlistoflistings*
+\clearpage
+% TURNINGS (this is an optional part of the work)
+\include{abbreviations}
+% CHAPTERS (subsequent chapters are appended from subsequent files)
+\chapterstyle{default}
+\include{chapter01}
+\include{chapter02}
+\include{chapter03}
+\include{chapter04}
+% BIBLIOGRAPHY (will be generated automatically)
+%NOTE: You must prepare the references' library yourself. A good tool for this is JabRef.
+% JabRef, however, offers more record types than BibTeX supports.
+% Please do not declare records of types not supported by BibTeX.
+% The list of references and citations is formatted in accordance with the declared style.
+% Styles that produce numeric citations (in the form [1], [2,3]) are recommended.
+% Such a style is, for example, plabbrv
+\bibliographystyle{abbrv}
+% To control spacing in the literature list, you can use the following command
+\setlength{\bibitemsep}{2pt} % - narrows the list
+% The bibliography items appears in the table of contents slightly differently than lists of figures, tables, etc.
+% To maintain the correct spacing, use the following command
+%\addtocontents{toc}{\addvspace{2pt}} % we set the space in the table of contents before the Literature item
+% The file name of the prepared library is entered without the .bib extension
+% (the line below loads records from the file "bibliography.bib")
+\bibliography{bibliography}
+
+\appendix
+\include{appendixA}
+%\include{appendixB}
+
+% If an index appears in your work, uncomment the following lines
+%%\chapterstyle{noNumbered}
+%%\phantomsection % sets an anchor
+%%\addcontentsline{toc}{chapter}{Index}
+%%\printindex
+
+\end{document}
+
+
+
+
