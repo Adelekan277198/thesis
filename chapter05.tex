@@ -210,3 +210,109 @@ We create a word cloud visualization to show the frequency or prevalence of term
     \caption{Word Cloud of Place Names}
     \label{fig:wordcloud}
 \end{figure}
+\section{Development of Data Acquisition Algorithms and Information Model for Place Names and Attributes}
+We developed the Software Requirements Specification (SRS) document to provide the information model for recording data describing place names and their attributes in a systematic manner. Our system stores temporal and spatial location data for places, includes algorithms for gathering data from multiple sources, and provides a tool environment for investigating changes in place names.
+The model will serve as a platform for users to discover and learn about various destinations across Edo-Benin City. It will use a large database to produce helpful and engaging content.
+\subsubsection{Features}
+The Model will connect with a database to store and retrieve information about locations, administrative areas, and other related aspects such as historical data, alternative names, geographical attributes, and user-generated information.
+
+\section*{Key Features}
+
+\begin{itemize}
+    \item \textbf{Administrative Details, Locations}: Provide the foundation for understanding the geographical and administrative context of a location.
+    \item \textbf{Alternative Names}: Enhance searchability and discovery by incorporating the various names a location may have.
+    \item \textbf{Geographical Features}: Offer a deeper understanding of a location's physical characteristics.
+    \item \textbf{Historical Data}: Enrich locations with stories and events that occurred throughout time.
+\end{itemize}
+
+\subsection*{Functional Requirements}
+
+\begin{itemize}
+    \item \textbf{User Management}: 
+    \begin{itemize}
+        \item Users will be able to register, login, and logout.
+        \item The application will authenticate users based on username and password stored securely.
+        \item Implement mechanisms to reset forgotten passwords.
+        \item An admin user type will exist with elevated privileges.
+    \end{itemize}
+    \item \textbf{Location Management}:
+    \begin{itemize}
+        \item Users will be able to search for locations based on various criteria (name, postal code, etc.).
+        \item The application will display details of a location, including its description, founding year (if available), and alternative names.
+        \item Allow authorized users to add new locations with descriptions and basic details.
+    \end{itemize}
+    \item \textbf{Content Management}:
+    \begin{itemize}
+        \item Users will be able to create and submit posts related to locations.
+        \item Implement a workflow for approving/rejecting posts by administrators.
+        \item Users will be able to view posts associated with specific locations.
+        \item Allow users to add comments to existing posts.
+    \end{itemize}
+    \item \textbf{Administrative Functions}: 
+    \begin{itemize}
+        \item Admin users can manage user accounts, update administrative details, and potentially manage other aspects of the data.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Non-Functional Requirements}
+
+\begin{itemize}
+    \item \textbf{Performance}
+    \begin{itemize}
+        \item The system shall be capable of handling large volumes of data efficiently.
+        \item Data retrieval and query processing shall be optimized for responsiveness.
+        \item Algorithms for data acquisition shall be designed for scalability and performance.
+    \end{itemize}
+    \item \textbf{Security}
+    \begin{itemize}
+        \item Access to the system shall be role-based, with different levels of permissions for users.
+        \item Data stored within the system shall be encrypted to ensure confidentiality and integrity.
+        \item Measures shall be in place to prevent unauthorized access and data breaches.
+    \end{itemize}
+    \item \textbf{Reliability}
+    \begin{itemize}
+        \item The system shall be designed with redundancy and failover mechanisms to ensure high availability.
+        \item Data integrity checks shall be performed regularly to detect and prevent corruption.
+        \item Backup and recovery procedures shall be implemented to mitigate the risk of data loss.
+    \end{itemize}
+\end{itemize}
+\subsection{Data Model (Database Schematic) Diagram}
+Below is the model schematic diagram that provide overall model functionality features, 
+
+\section*{Diagram Descriptions}
+
+\begin{description}
+
+    \item[\texttt{administrativedetails}] This table likely stores administrative area information such as country, state, and local government.
+
+    \item[\texttt{administrative\_ass}] This table might store associations between administrative areas and some identifier (\texttt{location\_id}) during a specific period.
+
+    \item[\texttt{admin\_actions}] This table could track actions taken by administrators on the system, including affected users or posts.
+
+    \item[\texttt{alternativenames}] This table likely stores alternative names for locations.
+
+    \item[\texttt{comments}] This table stores information about comments made on posts, including the content and user who created it.
+
+    \item[\texttt{geographicalfeatures}] This table stores geographical features associated with locations, including type, location data, and descriptions.
+
+    \item[\texttt{historical\_data}] This table stores historical data/events related to locations, including event descriptions, sources, and dates.
+
+    \item[\texttt{locations}] Stores information about specific locations, including name, postal code, founding year, and descriptions.
+
+    \item[\texttt{posts}] This table stores posts created by users, including content, approval status, and creation time.
+
+    \item[\texttt{users}] This table stores information about users, including username, password, email, profile information, and account status.
+
+\end{description}
+
+\newpage
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{model_schema.png}
+    \caption{Data Model (Database Schematic) Diagram}
+    \label{fig:enter-label}
+\end{figure}
+\newpage
+\section{conclusion}
+The study integrates historical, linguistic, archeological, and technological methodologies to better understand the evolution of place names in Edo/Benin City. The study emphasizes the role of colonial and indigenous influences, cultural connections, and socio-cultural processes in constructing the toponymic landscape. The established data gathering approach and GIS visualizations provide powerful tools for deeper investigation and comprehension of place names' historical trajectories.
