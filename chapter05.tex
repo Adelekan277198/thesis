@@ -7,20 +7,30 @@ Data is a crucial part of this project, various data sources can be explored acr
     \item Archaeological Records: Archaeological findings such as inscriptions, monuments, and artifacts can illuminate ancient place names and their changes over time. Excavations in and around Edo/Benin City may reveal ancient place markers or written records.
     \item Linguistic Studies: Linguistic research can provide clues about the origins and meanings of place names. Etymological dictionaries, linguistic atlases, and studies on language evolution in the region can be helpful resources.
     \item Anthropological Studies: Anthropological research on indigenous cultures and oral traditions can offer insights into traditional place naming practices and their cultural significance. Interviews with local communities and elders may reveal valuable information about the history of place names.
-    \item Geographical Information Systems (GIS): GIS data such as spatial datasets, satellite imagery, and geospatial databases can map the geographical distribution of place names over time. GIS technology allows spatial analysis and visualization of historical changes in place names.
     \item Historical Maps and Gazetteers: Historical maps, atlases, and gazetteers visually represent place names at different historical points. Digitized collections of old maps and gazetteers can be accessed online or through libraries and archives.
-    \item Digital Archives and Libraries: Online repositories, digital libraries, and archives often contain digitized historical documents, maps, and photographs relevant to studying place names. Examples include digital archives of colonial administrations, library collections, and academic repositories.
+    \item Digital Archives and Libraries: Online repositories, digital libraries, and archives often contain digitized historical documents, maps, and photographs relevant to studying pyanlace names. Examples include digital archives of colonial administrations, library collections, and academic repositories.
     \item Public Records and Government Databases: Government records, such as land deeds, property registers, and official place name registries, may contain valuable data on the formal naming and renaming of locations.
     \item Local Knowledge and Community Engagement: Engaging with local communities, historians, and experts can provide firsthand knowledge and insights into the history and evolution of place names. Community workshops, oral history projects, and collaborative research initiatives can facilitate knowledge sharing and data collection.
 \end{itemize}
 
-Given the limited availability of data in Nigeria, certain datasets may not be readily accessible to the public. In such cases, we employ alternative strategies to mitigate this data gap. One approach involves sourcing historical documents and conducting text analysis to extract pertinent information. This method allows us to glean valuable insights despite the unavailability of certain datasets.
+Given the limited availability of data in Nigeria, certain datasets may not be readily accessible to the public. In such cases, I employ alternative strategies to mitigate this data gap. One approach involves sourcing historical documents and conducting text analysis to extract pertinent information. This method allows me to glean valuable insights despite the unavailability of certain datasets.
 \section{Analysis of Historical Documents}
-Historical documents have been instrumental in unraveling the historical evolution of place names in Edo and Benin City. By delving into colonial records, maps, and administrative documents, we traced the renaming initiatives undertaken by colonial authorities and understood the motivations behind these changes. Additionally, indigenous sources such as oral histories and traditional narratives offered alternative perspectives on the region's naming practices, enriching our understanding of the cultural significance of place names.
-In this section, we delve into the analysis of historical documents and linguistic patterns to unravel the evolution of place names accompanying the transformation of Edo into Benin City. By leveraging IT tools, we have conducted a comprehensive examination of primary sources, including historical texts, oral traditions, and linguistic data, to discern the intricate shifts in nomenclature over time.
-
-Our analysis began with a meticulous review of historical documents spanning various epochs, ranging from ancient chronicles to colonial records. These documents provided invaluable insights into the historical context surrounding the emergence and evolution of Edo/Benin City. Leveraging both traditional archival sources and digitized repositories, our exploration encompassed a diverse array of primary sources, including but not limited to:
-
+Historical documents have been instrumental in unraveling the historical evolution of place names in Edo and Benin City. The analysis of historical documents, maps, and administrative records highlights the colonial renaming initiatives and their motivations. Indigenous sources, such as oral histories, provided additional perspectives on naming practices. The development of a data model and an information system facilitated the management of place name data, including recorded pronunciations.
+Sources of Data and Processing:
+1.	Historical Documents:
+o	Sources: Old maps, colonial records, official documents, administrative archives.
+o	Processing: Processed using data mapping and schema alignment techniques.
+2.	API Data:
+o	Sources: Public APIs (e.g., OpenStreetMap) and custom APIs.
+o	Processing: Integrated using API integration techniques, handled rate limiting, and ensured structured data retrieval.
+3.	Manual Data Entry:
+o	Sources: Domain experts and collaborators.
+o	Processing: Entered through user-friendly interfaces with validation rules to ensure accuracy and consistency.
+4.	Bulk Data Import:
+o	Sources: CSV and Excel files from libraries and local post offices.
+o	Processing: Uploaded in bulk, mapped to the database schema, and converted data types appropriately.
+5.	Preprocessed Data:
+o	Techniques: Cleaning (duplicate removal, missing value handling), normalization, error correction, data transformation, integration, validation, enrichment, storage, indexing.
 \textbf{The benin Kingdom document:}
 This document provides an analysis based on the RAFBookletYear-5-1 \href{https://denhamgreenacademy.e-act.org.uk/wp-content/uploads/sites/5/2020/10/RAFBookletYear-5-1Benin-Kingdom-paper-size-297x21-cmUPDATED.210187322-wecompress.com_.pdf}{Benin-Kingdom} and offers significant insights into the historical, cultural, and socio-economic aspects of the Benin Kingdom.
 
@@ -133,23 +143,18 @@ Animism & The belief that non-human objects have spirits or souls. \\
 
 Archaeological reports from Thurstan Shaw, Graham Connah, and Ekpo Eyo have been instrumental in understanding the transformation of Edo into Benin City. For example, Shaw's 1979 report delved into excavations, revealing evidence of urban planning, architectural structures, and material culture indicative of a burgeoning city. Connah's work from 1975 might have focused on settlement patterns, technological innovations, and social organization within ancient Benin, shedding light on the processes that contributed to its urbanization. Additionally, Eyo's report from 1980 could have provided insights into the stratigraphic data and chronological sequence of cultural developments in the region, offering valuable context for understanding the transition from Edo to Benin City. These archaeological findings collectively contribute to our understanding of the socio-cultural and economic dynamics accompanying the city's transformation over time.
 
-\textbf{Oral Traditions and Indigenous Knowledge:} Recognizing the importance of oral traditions as repositories of collective memory and cultural heritage, we engaged with local communities and indigenous scholars to document oral histories, folk tales, and place-name traditions associated with Edo/Benin City. Transmitted across generations, these narratives offered nuanced perspectives on the socio-cultural dynamics shaping the toponymic landscape. One oral tradition recounted by local communities might involve narratives of migration, conquest, and settlement that contributed to the transformation of Edo into Benin City. For instance, one older man shared stories of legendary figures or ancestral rulers who led their people to establish a new capital, marking the beginning of Benin City's emergence as a prominent political and cultural center. These tales could provide insights into the socio-political processes, power struggles, and symbolic meanings associated with the city's renaming and evolution.
+\textbf{Oral Traditions and Indigenous Knowledge:} Recognizing the importance of oral traditions as repositories of collective memory and cultural heritage, I engaged with local communities and indigenous scholars to document oral histories, folk tales, and place-name traditions associated with Edo/Benin City. Transmitted across generations, these narratives offered nuanced perspectives on the socio-cultural dynamics shaping the toponymic landscape. One oral tradition recounted by local communities might involve narratives of migration, conquest, and settlement that contributed to the transformation of Edo into Benin City. For instance, one older man shared stories of legendary figures or ancestral rulers who led their people to establish a new capital, marking the beginning of Benin City's emergence as a prominent political and cultural center. These tales could provide insights into the socio-political processes, power struggles, and symbolic meanings associated with the city's renaming and evolution.
 
-By synthesizing insights from these diverse primary sources, our research endeavors to reconstruct the historical trajectory of Edo/Benin City's toponymic evolution, discerning the interplay of myth, memory, and materiality in shaping the city's identity over time.
-
-\textbf{Linguistic Patterns}:
-Through linguistic analysis, we have uncovered intriguing insights into the naming practices of Edo and Benin City. By delving into place names' etymology, phonetics, and semantics, we have discerned patterns reflective of cultural influences and historical contexts. For example, we observed a blend of indigenous Edo language elements with linguistic borrowings from neighboring cultures, suggesting a rich tapestry of cultural interactions and exchanges. Additionally, linguistic analysis revealed shifts in language usage over time, indicating periods of socio-cultural change and evolution within the region. These findings underscore the dynamic nature of place naming practices and offer valuable perspectives on the historical and cultural dynamics shaping the toponymic landscape of Edo/Benin City.
-
+By developing a comprehensive digital database and web application, this study provides a foundation for managing and exploring the historical evolution of place names in Edo/Benin City. The focus on data acquisition and preprocessing ensures high-quality and reliable data, contributing to the understanding of the cultural and historical significance of place names in the region.
 \textbf{Findings}
-
-Through our analysis of historical documents and linguistic patterns, several key findings emerged regarding the evolution of place names in Edo and Benin City. We observed a significant impact of colonial influences on place naming practices, with colonial authorities imposing English or European names on geographical features, urban centers, and administrative districts. However, indigenous place names persisted in local memory and oral traditions, serving as resilient symbols of cultural heritage and identity.
-Furthermore, linguistic analysis revealed the dynamic nature of place naming practices, with linguistic diversity, cultural influences, and historical legacies shaping the naming of places in the region. We identified patterns of linguistic borrowings, semantic shifts, and phonetic adaptations in place names, reflecting the complex interplay of linguistic, cultural, and historical factors.
-Our analysis of historical documents and linguistic patterns has provided valuable insights into the multifaceted nature of place naming practices in Edo and Benin City. Understanding the historical evolution and linguistic dynamics of place names gives us a deeper appreciation for the region's cultural heritage and identity.
+Through our analysis of historical documents and linguistic patterns, several key findings emerged regarding the evolution of place names in Edo and Benin City. I observed a significant impact of colonial influences on place naming practices, with colonial authorities imposing English or European names on geographical features, urban centers, and administrative districts. However, indigenous place names persisted in local memory and oral traditions, serving as resilient symbols of cultural heritage and identity.
+Furthermore, linguistic analysis revealed the dynamic nature of place naming practices, with linguistic diversity, cultural influences, and historical legacies shaping the naming of places in the region. I identified patterns of linguistic borrowings, semantic shifts, and phonetic adaptations in place names, reflecting the complex interplay of linguistic, cultural, and historical factors.
+Our analysis of historical documents and linguistic patterns has provided valuable insights into the multifaceted nature of place naming practices in Edo and Benin City. Understanding the historical evolution and linguistic dynamics of place names gives me a deeper appreciation for the region's cultural heritage and identity.
 This concludes our analysis of historical documents and linguistic patterns, marking a significant milestone in exploring the evolution of place names in Edo and Benin City.
 
-\section{Visualization of Place Name Evolution Using GIS Maps and Charts}
+\section{Visualization of Place Name Evolution}
 
-Utilizing Geographic Information System (GIS) technology, we embarked on visualizing the evolutionary journey of Edo to Benin City through maps and charts. These visualizations offer a spatial-temporal perspective on the transformation of toponyms over centuries, shedding light on the complex processes and historical events that shaped the city's nomenclature.
+Utilizing Geographic Information System (GIS) technology, I embarked on visualizing the evolutionary journey of Edo to Benin City through maps and charts. These visualizations offer a spatial-temporal perspective on the transformation of toponyms over centuries, shedding light on the complex processes and historical events that shaped the city's nomenclature.
 
 \begin{figure}[h!]
     \centering
@@ -168,9 +173,9 @@ Utilizing Geographic Information System (GIS) technology, we embarked on visuali
 
 Geological Map of Edo State: Benin City and Other Locations (Nigerian Geological Survey Agency, 2020). The map depicts the geographical region, including Edo and Benin City, and highlights significant characteristics like rivers, hills, woods, and metropolitan areas. The map distinguishes between indigenous and colonial-era place names by superimposing historical maps on contemporary datasets, using various markers or colors to indicate each.
 \newpage
-In addition to the interactive map, we performed several other visualizations with geocoded data to gain further insights into historical place names' spatial distribution and patterns, as shown in the following charts.
+In addition to the interactive map, I performed several other visualizations with geocoded data to gain further insights into historical place names' spatial distribution and patterns, as shown in the following charts.
 \begin{itemize}
-    \item The heatmap above allows us to visualize the density or concentration of historical place names in different areas, which helps identify areas with high concentrations of place names and sparsely populated areas.
+    \item The heatmap above allows me to visualize the density or concentration of historical place names in different areas, which helps identify areas with high concentrations of place names and sparsely populated areas.
 \end{itemize}
 
 \begin{figure}[h!]
@@ -180,11 +185,11 @@ In addition to the interactive map, we performed several other visualizations wi
     \label{fig:heatmap}
 \end{figure}
 \newpage
-We also plot the histogram of temporal distribution, which provides insight into the frequency of place names across various historical epochs. The dataset is organized into distinct temporal periods, with each bar representing the count of place names associated with a particular timeframe. By analyzing the distribution of bars, one can discern temporal patterns and trends in place-naming practices, identifying periods of heightened activity or significance in naming places. This visualization provides the historical context of place names, shedding light on the evolution and dynamics of naming conventions over time.
+I also plot the histogram of temporal distribution, which provides insight into the frequency of place names across various historical epochs. The dataset is organized into distinct temporal periods, with each bar representing the count of place names associated with a particular timeframe. By analyzing the distribution of bars, one can discern temporal patterns and trends in place-naming practices, identifying periods of heightened activity or significance in naming places. This visualization provides the historical context of place names, shedding light on the evolution and dynamics of naming conventions over time.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{histogram1.png}
+    \includegraphics[width=1\linewidth]{output2.png}
     \caption{Temporal Distribution of Place Names}
     \label{fig:histgram}
 \end{figure}
@@ -206,9 +211,9 @@ The histogram shows the top 20 most prevalent village names and their frequency 
     \caption{Spatial Relationships between Place Names}
     \label{fig:network}
 \end{figure}
-We Constructed a network visualization to explore the spatial relationships between place names based on proximity or connectivity. We create a network graph where nodes represent place names and edges represent spatial connections between them the figure below give insights on the spatial relationships between place names.
+A network visualization to explore the spatial relationships between place names based on proximity or connectivity has been constructed together with a network graph where nodes represent place names and edges represent spatial connections between them the figure below give insights on the spatial relationships between place names.
 \newpage
-We create a word cloud visualization to show the frequency or prevalence of terms in place names. This is able to identify recurring themes or patterns in naming conventions.
+I create a word cloud visualization to show the frequency or prevalence of terms in place names. This is able to identify recurring themes or patterns in naming conventions.
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{wordcloud.png}
@@ -216,7 +221,7 @@ We create a word cloud visualization to show the frequency or prevalence of term
     \label{fig:wordcloud}
 \end{figure}
 \section{Development of Data Acquisition Algorithms and Information Model for Place Names and Attributes}
-We developed the Software Requirements Specification (SRS) document to provide the information model for recording data describing place names and their attributes in a systematic manner. Our system stores temporal and spatial location data for places, includes algorithms for gathering data from multiple sources, and provides a tool environment for investigating changes in place names.
+I developed the Software Requirements Specification (SRS) document to provide the information model for recording data describing place names and their attributes in a systematic manner. Our system stores temporal and spatial location data for places, includes algorithms for gathering data from multiple sources, and provides a tool environment for investigating changes in place names.
 The model will serve as a platform for users to discover and learn about various destinations across Edo-Benin City. It will use a large database to produce helpful and engaging content.
 \subsubsection{Features}
 The Model will connect with a database to store and retrieve information about locations, administrative areas, and other related aspects such as historical data, alternative names, geographical attributes, and user-generated information.
@@ -320,4 +325,4 @@ Below is the model schematic diagram that provide overall model functionality fe
 \end{figure}
 \newpage
 \section{conclusion}
-The study integrates historical, linguistic, archeological, and technological methodologies to better understand the evolution of place names in Edo/Benin City. The study emphasizes the role of colonial and indigenous influences, cultural connections, and socio-cultural processes in constructing the toponymic landscape. The established data gathering approach and GIS visualizations provide powerful tools for deeper investigation and comprehension of place names' historical trajectories.
+The study integrates historical, linguistic, archeological, and technological methodologies to better understand the evolution of place names in Edo/Benin City. The study emphasizes the role of colonial and indigenous influences, cultural connections, and socio-cultural processes in constructing the toponymic landscape. The established data gathering approach and providing powerful tools for deeper investigation and comprehension of place names' historical trajectories.
