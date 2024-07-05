@@ -39,6 +39,10 @@
 %\usepackage{soul} % package with commands for underlining, underlining, highlighting text (rather unnecessary)
 \usepackage{ebgaramond} % garamond font package, needed only for the title page, must appear before the tgtermes package
 
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
 %% To obtain Polish letters in PDF (and not conglomerates) we use the tgterms font package.
 %% This package defines Times font clones with the following shapes: normal, bold, italic, bold italic.
 %% This package is missing a slanted font (similar to Italic).
@@ -930,7 +934,7 @@ Speciality: & {\bfseries \@specjalnosc}\\
 \pdfbookmark[0]{List of listings}{listOfListings.1} %
 %%\phantomsection
 %%\addcontentsline{toc}{chapter}{List of Listings}
-\lstlistoflistings*
+%%\lstlistoflistings*
 \clearpage
 % TURNINGS (this is an optional part of the work)
 \include{abbreviations}
@@ -941,6 +945,9 @@ Speciality: & {\bfseries \@specjalnosc}\\
 \include{chapter03}
 \include{chapter04}
 \include{chapter05}
+\include{chapter06}
+\include{chapter07}
+
 % BIBLIOGRAPHY (will be generated automatically)
 %NOTE: You must prepare the references' library yourself. A good tool for this is JabRef.
 % JabRef, however, offers more record types than BibTeX supports.
@@ -958,8 +965,7 @@ Speciality: & {\bfseries \@specjalnosc}\\
 % (the line below loads records from the file "bibliography.bib")
 \bibliography{bibliography}
 
-\appendix
-\include{appendixA}
+
 %\include{appendixB}
 
 % If an index appears in your work, uncomment the following lines

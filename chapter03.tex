@@ -2,26 +2,17 @@
 
 \section{Research Design and Approach}
 
-The research design for this study is primarily exploratory and descriptive, aiming to systematically trace the historical evolution of place names within the geographical region corresponding to the transformation of Edo into Benin City. The study adopts a longitudinal perspective, examining place name changes across different historical periods, including pre-colonial, colonial, and post-colonial eras. The research design incorporates both qualitative and quantitative methods to analyze the historical, and socio-cultural dimensions of place naming practices.
+The research design for this study is primarily exploratory and descriptive, aiming to systematically trace the historical evolution of place names within the geographical region corresponding to the transformation of Edo into Benin City. The study adopts a longitudinal perspective, examining place name changes across different historical periods, including pre-colonial, colonial, and post-colonial eras. The research design incorporates both qualitative and quantitative methods to analyze the historical and socio-cultural dimensions of place naming practices.
 
 \subsection{Approach}
 
-The research approach is interdisciplinary, drawing upon insights from history, geography, and cultural studies to comprehensively examine the evolution of place names. The approach involves the following key components:
+The research approach is interdisciplinary, drawing upon insights from history, geography, and cultural studies to comprehensively examine the evolution of place names. This involves several key components. First, archival research and historical analysis are conducted to reconstruct the historical context surrounding the transformation of Edo into Benin City. Primary sources such as colonial records, historical maps, and official documents are consulted to trace the origins and evolution of place names over time.
 
-\begin{itemize}
-    \item \textbf{Historical Research:} Archival research and historical analysis are conducted to reconstruct the historical context surrounding the transformation of Edo into Benin City. Primary sources such as colonial records, historical maps, and official documents are consulted to trace the origins and evolution of place names over time.
-    
-    \item \textbf{Community Engagement:} Community engagement and stakeholder consultation are integral components of the research approach. Local communities, indigenous groups, and cultural experts are engaged in the research process to provide insights, perspectives, and indigenous knowledge related to place naming practices.
-    
-    \item \textbf{Ethical Considerations:} Ethical considerations, including cultural sensitivity and community consent, are carefully addressed throughout the research process. Respect for local knowledge systems, protection of cultural heritage, and informed consent protocols are prioritized in all research activities involving community engagement and data collection.
-\end{itemize}
+Second, community engagement and stakeholder consultation are integral to the research approach. Local communities, indigenous groups, and cultural experts are involved in the research process to provide insights, perspectives, and indigenous knowledge related to place naming practices. Ethical considerations, including cultural sensitivity and community consent, are carefully addressed throughout the research process. Respect for local knowledge systems, protection of cultural heritage, and informed consent protocols are prioritized in all research activities involving community engagement and data collection.
 
-\subsection{Data Collection Methods (Archival Research from different sources)}
+\subsection{Data Collection Methods}
 
-Data collection for this study includes research from publicly available internet sources, structured interviews with local historians and community leaders, and surveys distributed to gather contemporary perspectives on historical place names. These methods are utilized to gather primary and secondary data sources that provide insights into the historical and socio-cultural dimensions of place naming practices. Due to a lack of data availability and budget constraints, I source data using archival research.
-
-Archival research is a primary method for accessing historical documents, maps, and official records relevant to the study area. Researchers consult archival repositories, such as national archives, libraries, and historical societies, to retrieve primary source materials dating back to the pre-colonial, colonial, and post-colonial periods. These archival documents include colonial gazettes, administrative reports, land surveys, census records, and historical maps that provide valuable information on place names, their origins, and changes over time.
-
+Data collection for this study includes archival research, structured interviews with local historians and community leaders, and surveys to gather contemporary perspectives on historical place names. These methods are utilized to gather primary and secondary data sources that provide insights into the historical and socio-cultural dimensions of place naming practices. Archival research is a primary method for accessing historical documents, maps, and official records relevant to the study area. Researchers consult archival repositories, such as national archives, libraries, and historical societies, to retrieve primary source materials dating back to the pre-colonial, colonial, and post-colonial periods. These archival documents include colonial gazettes, administrative reports, land surveys, census records, and historical maps that provide valuable information on place names, their origins, and changes over time.
 
 \subsection{Data Acquisition Techniques}
 
@@ -29,79 +20,20 @@ The methodology of this study primarily involves the development of a relational
 
 The dataset used for this study includes data from historical documents, public APIs (OpenStreetMap), and manual data entry from local historians and university researchers. The structure of the dataset encompasses various attributes such as place names, geographical coordinates, and historical events. Licensing information is adhered to, and all data sources are appropriately cited.
 
-The data model captures various attributes of place names, including administrative details, historical data, and alternative names. The web application, developed using PHP, HTML, CSS, JavaScript, and AJAX, provides a user-friendly interface for data exploration and management.
+The data model captures various attributes of place names, including administrative details, historical data, and alternative names. The web application, developed using PHP, HTML, CSS, JavaScript, and AJAX, provides a user-friendly interface for data exploration and management. The data acquisition techniques employed include API integration, manual data entry, and data import. Public APIs such as OpenStreetMap API are integrated to fetch location maps, and custom APIs are developed to connect with external data sources, ensuring data is retrieved in a structured and consistent format. Mechanisms are implemented to handle API rate limits and avoid overloading external services.
 
-The following methods were employed:
-
-\begin{enumerate}
-    \item \textbf{API Integration:}
-    \begin{itemize}
-        \item Public APIs: Integrated with public APIs such as OpenStreetMap API to fetch location maps.
-        \item Custom APIs: Developed custom APIs to connect with external data sources, ensuring data is retrieved in a structured and consistent format.
-        \item Rate Limiting and Throttling: Implemented mechanisms to handle API rate limits and avoid overloading external services.
-    \end{itemize}
-    
-    \item \textbf{Manual Data Entry:}
-    \begin{itemize}
-        \item Collaboration: Collaborated with university researchers, local historians for manual data entry of specific and hard-to-automate data sources.
-        \item Data Entry Interfaces: Developed user-friendly interfaces for manual data entry, ensuring data consistency and accuracy through validation rules and dropdown selections.
-    \end{itemize}
-    
-    \item \textbf{Data Import:}
-    \begin{itemize}
-        \item Bulk Upload: Allowed bulk upload of data files (e.g., CSV, Excel) from trusted sources like libraries and local post offices.
-        \item Data Mapping: Used data mapping techniques to align imported data with the database schema, ensuring proper field matching and type conversion.
-    \end{itemize}
-\end{enumerate}
+Collaboration with university researchers and local historians ensures manual data entry of specific and hard-to-automate data sources. User-friendly interfaces for manual data entry are developed, ensuring data consistency and accuracy through validation rules and dropdown selections. Bulk upload of data files (e.g., CSV, Excel) from trusted sources like libraries and local post offices is allowed, with data mapping techniques used to align imported data with the database schema, ensuring proper field matching and type conversion.
 
 \subsection{Data Preprocessing Techniques}
 
-\begin{enumerate}
-    \item \textbf{Data Cleaning:}
-    \begin{itemize}
-        \item Duplicate Removal: Identified and merged duplicate records using duplicate detection algorithms.
-        \item Missing Value Handling: Addressed missing values by imputing with mean, median, or mode for numerical data and using placeholders or default values for categorical data.
-        \item Normalization: Standardized data formats (e.g., date formats, coordinate formats) to ensure consistency across the database.
-        \item Error Correction: Implemented automated scripts and manual review processes to detect and correct common data entry errors.
-    \end{itemize}
-    
-    \item \textbf{Data Transformation:}
-    \begin{itemize}
-        \item Normalization: Normalized data to fit the relational database schema, ensuring each piece of data is stored in the appropriate table and field.
-        \item Feature Engineering: Created new features from raw data to enhance the database, such as calculating population density from area size and population.
-    \end{itemize}
-    
-    \item \textbf{Data Integration:}
-    \begin{itemize}
-        \item Data Merging: Merged data from multiple sources, resolving conflicts and discrepancies through predefined rules and priority settings.
-        \item Schema Mapping: Aligned data from different sources to the existing database schema, ensuring proper field mapping and data type conversion.
-    \end{itemize}
-    
-    \item \textbf{Data Validation:}
-    \begin{itemize}
-        \item Schema Validation: Ensured that all data conforms to the database schema constraints.
-        \item Business Rule Validation: Applied business rules to validate data, such as checking the range of valid postal codes.
-        \item Referential Integrity: Ensured that all foreign key references are valid and consistent with the related tables.
-    \end{itemize}
-    
-    \item \textbf{Data Enrichment:}
-    \begin{itemize}
-        \item External Data Sources: Enhanced the dataset by integrating additional data from external sources.
-        \item Annotation: Added metadata and annotations to enrich the dataset, such as adding source information, data reliability scores, and update timestamps.
-    \end{itemize}
-    
-    \item \textbf{Data Storage and Indexing:}
-    \begin{itemize}
-        \item Optimized Storage: Stored preprocessed data in an optimized format for efficient querying and retrieval.
-        \item Indexing: Created indexes on frequently queried columns to improve performance, such as location names, postal codes, and geographical coordinates.
-    \end{itemize}
-    
-    \item \textbf{Logging and Monitoring:}
-    \begin{itemize}
-        \item Data Pipeline Monitoring: Implemented logging and monitoring for data acquisition and preprocessing pipelines to detect and resolve issues promptly.
-        \item Error Handling: Developed robust error handling mechanisms to manage exceptions and data inconsistencies during the acquisition and preprocessing stages.
-    \end{itemize}
-\end{enumerate}
+The data preprocessing techniques employed include data cleaning, data transformation, data integration, data validation, and data enrichment.
+
+Data cleaning involves duplicate removal, missing value handling, normalization, and error correction. Duplicate records are identified and merged using duplicate detection algorithms. Missing values are addressed by imputing with mean, median, or mode for numerical data and using placeholders or default values for categorical data. Data formats are standardized to ensure consistency across the database, and automated scripts and manual review processes are implemented to detect and correct common data entry errors.
+
+Data transformation involves normalizing data to fit the relational database schema, ensuring each piece of data is stored in the appropriate table and field.  Data integration involves merging data from multiple sources, resolving conflicts and discrepancies through predefined rules and priority settings, and aligning data from different sources to the existing database schema, ensuring proper field mapping and data type conversion.
+
+Data validation ensures that all data conforms to the database schema constraints and applies business rules to validate data, such as checking the range of valid postal codes. Referential integrity is ensured by validating that all foreign key references are consistent with the related tables. Data enrichment enhances the dataset by integrating additional data from external sources and adding metadata and annotations, such as source information, data reliability scores, and update timestamps.
+
 
 \subsection{Ethical Considerations and Research Limitations}
 
@@ -109,165 +41,14 @@ Ethical considerations and research limitations are important aspects to address
 
 \subsubsection{Ethical Considerations}
 
-\begin{itemize}
-    \item \textbf{Respect for Cultural Sensitivity:} The study is approached with sensitivity to the cultural heritage and identity of local communities. Respectful engagement with indigenous knowledge holders, cultural experts, and community stakeholders is essential to ensure that the research process respects and preserves cultural traditions.
-    
-    \item \textbf{Informed Consent:} Informed consent is obtained from research participants, including interviewees, survey respondents, and contributors of archival materials. Participants are provided with clear information about the purpose of the study, the nature of their involvement, and their rights to confidentiality and privacy.
-    
-    \item \textbf{Protection of Cultural Heritage:} The protection and preservation of cultural heritage are prioritized throughout the research process. Archival materials, historical documents, and indigenous knowledge are handled with care and respect, ensuring that cultural artifacts are not exploited or misrepresented.
-    
-    \item \textbf{Community Engagement:} Engagement with local communities and stakeholders is conducted in a collaborative and inclusive manner. Community input and feedback are solicited throughout the research process to ensure that the study reflects the perspectives and priorities of the communities being studied.
-    
-    \item \textbf{Data Confidentiality:} Measures are implemented to safeguard the confidentiality and anonymity of research participants. Personal information collected during interviews, surveys, and archival research is kept confidential and used only for research purposes.
-\end{itemize}
+Respect for cultural sensitivity is paramount. The study is approached with sensitivity to the cultural heritage and identity of local communities. Respectful engagement with indigenous knowledge holders, cultural experts, and community stakeholders is essential to ensure that the research process respects and preserves cultural traditions. Informed consent is obtained from research participants, including interviewees, survey respondents, and contributors of archival materials. Participants are provided with clear information about the purpose of the study, the nature of their involvement, and their rights to confidentiality and privacy.
+
+The protection of cultural heritage is prioritized throughout the research process. Archival materials, historical documents, and indigenous knowledge are handled with care and respect, ensuring that cultural artifacts are not exploited or misrepresented. Engagement with local communities and stakeholders is conducted in a collaborative and inclusive manner. Community input and feedback are solicited throughout the research process to ensure that the study reflects the perspectives and priorities of the communities being studied. Measures are implemented to safeguard the confidentiality and anonymity of research participants. Personal information collected during interviews, surveys, and archival research is kept confidential and used only for research purposes.
 
 \subsubsection{Research Limitations}
 
-\begin{itemize}
-    \item \textbf{Availability of Historical Records:} The availability and accessibility of historical records and archival materials posed limitations on the scope and depth of the research. Some historical documents may be incomplete, fragmented, or inaccessible, impacting the comprehensiveness of the study.
-    
-    \item \textbf{Language Barriers:} Language barriers may present challenges in accessing and interpreting historical documents. Translation services and ensure accurate analysis of textual data.
-    
-    \item \textbf{Bias and Interpretation:} Researchers must be mindful of potential biases in historical narratives and archival records. Historical accounts may reflect colonial perspectives or cultural biases, requiring critical interpretation and contextualization within broader socio-political contexts.
-    
-    \item \textbf{Scope and Generalizability:} The study's findings may be limited in scope and may not be fully generalizable to other contexts beyond the specific geographical and historical context of Edo and Benin City. Researchers acknowledge the unique historical, cultural, and interpret findings accordingly.
-    
-    \item \textbf{Resource Constraints:} Resource constraints, including time, funding, and access to technology, may impact the research process and the ability to conduct comprehensive data collection and analysis. Researchers must navigate these constraints while striving to maintain rigor and integrity in the research design and execution.
-\end{itemize}
-%\chapter{Methodology}
+The availability and accessibility of historical records and archival materials posed limitations on the scope and depth of the research. Some historical documents may be incomplete, fragmented, or inaccessible, impacting the comprehensiveness of the study. Language barriers may present challenges in accessing and interpreting historical documents. Translation services and linguistic expertise may be required to overcome language barriers and ensure accurate analysis of textual data.
 
-%\section{Research Design and Approach}
+Researchers must be mindful of potential biases in historical narratives and archival records. Historical accounts may reflect colonial perspectives or cultural biases, requiring critical interpretation and contextualization within broader socio-political contexts. The study's findings may be limited in scope and may not be fully generalizable to other contexts beyond the specific geographical and historical context of Edo and Benin City. Researchers acknowledge the unique historical, cultural, and socio-political dynamics of the study area and interpret findings accordingly.
 
-%The research design for this study is primarily exploratory and descriptive, aiming to systematically trace the historical evolution of place names within the geographical region corresponding to the transformation of Edo into Benin City. The study adopts a longitudinal perspective, examining place name changes across different historical periods, including pre-colonial, colonial, and post-colonial eras. The research design incorporates both qualitative and quantitative methods to analyze the historical, and socio-cultural dimensions of place naming practices.
-
-%\subsection{Approach}
-
-%The research approach is interdisciplinary, drawing upon insights from history, geography, and cultural studies to comprehensively examine the evolution of place names. The approach involves the following key components:
-
-%\begin{itemize}
-   % \item \textbf{Historical Research:} Archival research and historical analysis are conducted to reconstruct the historical context surrounding the transformation of Edo into Benin City. Primary sources such as colonial records, historical maps, and official documents are consulted to trace the origins and evolution of place names over time.
-        
-   % \item \textbf{Community Engagement:} Community engagement and stakeholder consultation are integral components of the research approach. Local communities, indigenous groups, and cultural experts are engaged in the research process to provide insights, perspectives, and indigenous knowledge related to place naming practices.
-    
-    %\item \textbf{Ethical Considerations:} Ethical considerations, including cultural sensitivity and community consent, are carefully addressed throughout the research process. Respect for local knowledge systems, protection of cultural heritage, and informed consent protocols are prioritized in all research activities involving community engagement and data collection.
-%\end{itemize}
-
-
-%\subsection{Data Collection Methods (Archival Research, Interviews, Surveys)}
-
-%Data collection for studying the evolution of place names accompanying the transformation of Edo into Benin City involves a combination of archival research, interviews, and surveys. These methods are utilized to gather primary and secondary data sources that provide insights into the historical and socio-cultural dimensions of place naming practices.
-
-%Archival research is a primary method for accessing historical documents, maps, and official records relevant to the study area. Researchers consult archival repositories, such as national archives, libraries, and historical societies, to retrieve primary source materials dating back to the pre-colonial, colonial, and post-colonial periods. These archival documents include colonial gazettes, administrative reports, land surveys, census records, and historical maps that provide valuable information on place names, their origins, and changes over time.
-
-%Semi-structured interviews are conducted with key informants, local residents, community leaders, and cultural experts to gather qualitative data on place naming practices, indigenous knowledge, and cultural perspectives. Interview participants are selected based on their expertise in local history, language, and cultural heritage. Interview questions focus on topics such as the meanings and origins of place names, historical events influencing place naming, and community perceptions of cultural identity. Interviews provide rich, contextualized insights into the socio-cultural dynamics shaping place naming practices within the study area.
-
-%Surveys are administered to a representative sample of residents within the study area to collect quantitative data on place name usage, preferences, and perceptions. Surveys may be distributed in-person or electronically, using platforms such as online survey tools or mobile applications. Survey questions assess respondents' awareness of place names, preferences for traditional or colonial names, and perceptions of cultural identity associated with place names. Survey data provide quantitative insights into public attitudes and preferences regarding place naming practices, complementing qualitative findings from archival research and interviews.
-
-%\subsection{Data Acquisition Techniques}
-
-%The methodology of this study primarily involves the development of a relational data model and a web application to manage place names data. The data acquisition process includes integrating public APIs, such as OpenStreetMap API, and manual data entry from trusted sources, including collaboration with local historians and university researchers. Preprocessing techniques ensure data quality, involving duplicate detection, missing value handling, normalization, and error correction.
-
-%The data model captures various attributes of place names, including administrative details, historical data, and alternative names. The web application, developed using PHP, HTML, CSS, JavaScript, and AJAX, provides a user-friendly interface for data exploration and management.
-
-%The following methods were employed:
-
-%\begin{enumerate}
-   % \item \textbf{API Integration:}
-   % \begin{itemize}
-       % \item Public APIs: Integrated with public APIs such as OpenStreetMap API to fetch location maps.
-       % \item Custom APIs: Developed custom APIs to connect with external data sources, ensuring data is retrieved in a structured and consistent format.
-       % \item Rate Limiting and Throttling: Implemented mechanisms to handle API rate limits and avoid overloading external services.
-   % \end{itemize}
-    
-    %\item \textbf{Manual Data Entry:}
-   % \begin{itemize}
-       % \item Collaboration: Collaborated with university researchers, local historians for manual data entry of specific and hard-to-automate data sources.
-        %\item Data Entry Interfaces: Developed user-friendly interfaces for manual data entry, ensuring data consistency and accuracy through validation rules and dropdown selections.
-   % \end{itemize}
-    
-   % \item \textbf{Data Import:}
-   % \begin{itemize}
-       % \item Bulk Upload: Allowed bulk upload of data files (e.g., CSV, Excel) from trusted sources like libraries and local post offices.
-       % \item Data Mapping: Used data mapping techniques to align imported data with the database schema, ensuring proper field matching and type conversion.
-   % \end{itemize}
-%\end{enumerate}
-
-%\subsection{Data Preprocessing Techniques}
-
-%\begin{enumerate}
-   % \item \textbf{Data Cleaning:}
-    %\begin{itemize}
-        %\item Duplicate Removal: Identified and merged duplicate records using duplicate detection algorithms.
-        %\item Missing Value Handling: Addressed missing values by imputing with mean, median, or mode for numerical data and using placeholders or default values for categorical data.
-        %\item Normalization: Standardized data formats (e.g., date formats, coordinate formats) to ensure consistency across the database.
-       % \item Error Correction: Implemented automated scripts and manual review processes to detect and correct common data entry errors.
-   % \end{itemize}
-    
-    %\item \textbf{Data Transformation:}
-    %\begin{itemize}
-       % \item Normalization: Normalized data to fit the relational database schema, ensuring each piece of data is stored in the appropriate table and field.
-      %  \item Feature Engineering: Created new features from raw data to enhance the database, such as calculating population density from area size and population.
-    %\end{itemize}
-    
-    %\item \textbf{Data Integration:}
-    %\begin{itemize}
-       % \item Data Merging: Merged data from multiple sources, resolving conflicts and discrepancies through predefined rules and priority settings.
-        %\item Schema Mapping: Aligned data from different sources to the existing database schema, ensuring proper field mapping and data type conversion.
-    %\end{itemize}
-    
-   % \item \textbf{Data Validation:}
-    %\begin{itemize}
-        %\item Schema Validation: Ensured that all data conforms to the database schema constraints.
-        %\item Business Rule Validation: Applied business rules to validate data, such as checking the range of valid postal codes.
-       % \item Referential Integrity: Ensured that all foreign key references are valid and consistent with the related tables.
-   % \end{itemize}
-    
-    %\item \textbf{Data Enrichment:}
-    %\begin{itemize}
-        %\item External Data Sources: Enhanced the dataset by integrating additional data from external sources.
-       % \item Annotation: Added metadata and annotations to enrich the dataset, such as adding source information, data reliability scores, and update timestamps.
-   % \end{itemize}
-    
-  %  \item \textbf{Data Storage and Indexing:}
-    %\begin{itemize}
-       % \item Optimized Storage: Stored preprocessed data in an optimized format for efficient querying and retrieval.
-        %\item Indexing: Created indexes on frequently queried columns to improve performance, such as location names, postal codes, and geographical coordinates.
-    %\end{itemize}
-    
-    %\item \textbf{Logging and Monitoring:}
-    %\begin{itemize}
-       % \item Data Pipeline Monitoring: Implemented logging and monitoring for data acquisition and preprocessing pipelines to detect and resolve issues promptly.
-       % \item Error Handling: Developed robust error handling mechanisms to manage exceptions and data inconsistencies during the acquisition and preprocessing stages.
-%  %  \end{itemize}
-%\end{enumerate}
-
-%\subsection{Ethical Considerations and Research Limitations}
-
-%Ethical considerations and research limitations are important aspects to address in any scholarly study, including the investigation of the evolution of place names accompanying the transformation of Edo into Benin City. This section outlines the ethical principles guiding the research process and acknowledges the potential limitations inherent in the study, specifically focusing on the use of publicly available data and direct community engagement.
-
-%\subsubsection{Ethical Considerations}
-
-%\begin{itemize}
-   % \item \textbf{Respect for Cultural Sensitivity:} The study is approached with sensitivity to the cultural heritage and identity of local communities. Respectful engagement with indigenous knowledge holders, cultural experts, and community stakeholders is essential to ensure that the research process respects and preserves cultural traditions.
-    
- %   \item \textbf{Informed Consent:} Informed consent is obtained from research participants, including interviewees, survey respondents, and contributors of archival materials. Participants are provided with clear information about the purpose of the study, the nature of their involvement, and their rights to confidentiality and privacy.
-    
-    %\item \textbf{Protection of Cultural Heritage:} The protection and preservation of cultural heritage are prioritized throughout the research process. Archival materials, historical documents, and indigenous knowledge are handled with care and respect, ensuring that cultural artifacts are not exploited or misrepresented.
-    
-   % \item \textbf{Community Engagement:} Engagement with local communities and stakeholders is conducted in a collaborative and inclusive manner. Community input and feedback are solicited throughout the research process to ensure that the study reflects the perspectives and priorities of the communities being studied.
-    
-   % \item \textbf{Data Confidentiality:} Measures are implemented to safeguard the confidentiality and anonymity of research participants. Personal information collected during interviews, surveys, and archival research is kept confidential and used only for research purposes.
-%\end{itemize}
-%\subsubsection{Research Limitations}
-
-%\begin{itemize}
-   % \item \textbf{Availability of Historical Records:} The availability and accessibility of historical records and archival materials posed limitations on the scope and depth of the research. Some historical documents may be incomplete, fragmented, or inaccessible, impacting the comprehensiveness of the study.
-    
-   % \item \textbf{Language Barriers:} Language barriers may present challenges in accessing and interpreting historical documents. Translation services and linguistic expertise may be required to overcome language barriers and ensure accurate analysis of textual data.
-    
-   % \item \textbf{Bias and Interpretation:} Researchers must be mindful of potential biases in historical narratives and archival records. Historical accounts may reflect colonial perspectives or cultural biases, requiring critical interpretation and contextualization within broader socio-political contexts.
-    
-    %\item \textbf{Scope and Generalizability:} The study's findings may be limited in scope and may not be fully generalizable to other contexts beyond the specific geographical and historical context of Edo and Benin City. Researchers acknowledge the unique historical, cultural dynamics of the study area and interpret findings accordingly.
-    
-   % \item \textbf{Resource Constraints:} Resource constraints, including time, funding, and access to technology, may impact the research process and the ability to conduct comprehensive data collection and analysis. Researchers must navigate these constraints while striving to maintain rigor and integrity in the research design and execution.
-%\end{itemize}
+Resource constraints, including time, funding, and access to technology, may impact the research process and the ability to conduct comprehensive data collection and analysis. Researchers must navigate these constraints while striving to maintain rigor and integrity in the research design and execution.
