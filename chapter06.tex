@@ -1,95 +1,181 @@
 \chapter{Running Examples}
 
-This chapter provides a detailed walkthrough of our application's functionalities through a series of screenshots. Each screenshot is accompanied by an explanation of the feature it represents, illustrating the user experience from registration to interaction with the various components of the platform.
-
-When a user first visits the site, they are presented with a search bar, as depicted in Figure \ref{fig:searchbar}. This feature allows unregistered users to search for places by name or postcode. Upon entering a search query, users are redirected to a detailed place page, which includes a map and comprehensive information about the location.
+\section{Landing Page}
+The landing page serves as the main entry point to the application. It provides users with a simple interface to begin their exploration. Users can search for places using the search bar.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{searchbar.png}
-    \caption{Search Bar for Unregistered Users}
-    \label{fig:searchbar}
+    \includegraphics[width=\textwidth]{landingPage.png}
+    \caption{Landing Page}
+    \label{fig:landingPage}
 \end{figure}
 
-If the user chooses to register, they can click on the "Register" button at the top right of the screen, which takes them to the registration form. The registration form, depicted in Figure \ref{fig:signup}, prompts the user to provide essential details such as their full name, email address, password, and date of birth. This form is straightforward and user-friendly, ensuring a smooth onboarding process for new users.
+\section{Guest Search}
+Guests can search for places without needing to log in. The search bar allows them to type in the name of a place, and suggestions are provided as they type.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{guestSearch.png}
+    \caption{Guest Search}
+    \label{fig:guestSearch}
+\end{figure}
+
+\section{Place Details}
+When a place is selected, detailed information about it is displayed, including a map, the year it was founded, population, elevation, and a description. This helps users learn more about the place.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{placeDetails.png}
+    \caption{Place Details}
+    \label{fig:placeDetails}
+\end{figure}
+
+\section{More Details}
+Users can delve into additional details about a place. This section might include historical data, notable events, and other relevant information.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{moreDetails.png}
+    \caption{More Details}
+    \label{fig:moreDetails}
+\end{figure}
+
+\section{Geographical Features}
+This section provides geographical data about the place, such as its feature type, latitude, longitude, elevation, area size, and population. This information is useful for understanding the physical characteristics of the place.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{moreDetails2Geo.png}
+    \caption{Geographical Features}
+    \label{fig:moreDetails2Geo}
+\end{figure}
+
+\section{Administrative Details}
+Additional administrative details about the place, such as the local government, state, country code, and administrative level, are provided here. This helps in identifying the place's governance and jurisdiction.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{moreDetails3AdmDetails.png}
+    \caption{Administrative Details}
+    \label{fig:moreDetails3AdmDetails}
+\end{figure}
+
+\section{User Login}
+Registered users can log in using their email address and password. This allows them to access personalized features and contribute content.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{login.png}
+    \caption{User Login}
+    \label{fig:login}
+\end{figure}
+
+\section{User Registration}
+New users can sign up by providing their full name, email address, password, and date of birth. This process allows them to create an account and start contributing to the platform.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{signup.png}
-    \caption{User Registration Form}
+    \caption{User Registration}
     \label{fig:signup}
 \end{figure}
 
-Once registered and logged in, users can share their experiences by accessing the "Share Your Experience" form, as shown in Figure \ref{fig:share}. This form allows users to input the location of their experience and provide a detailed description. Additionally, users can upload images or videos to enhance their posts, making the shared experiences more vivid and engaging for other users.
+\section{Add New Place - Basic Information}
+Users can add new places by filling in basic information such as the place name, post code, year founded, and a brief description.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{share.png}
-    \caption{Share Your Experience Form}
-    \label{fig:share}
+    \includegraphics[width=\textwidth]{addnewPlace.png}
+    \caption{Add New Place - Basic Information}
+    \label{fig:addnewPlace}
 \end{figure}
 
-Each user has a personal account page where they can view their profile information and their posts. Figure \ref{fig:useraccount} illustrates this account page, which displays the user's email, date of birth, and a list of their posts. This page serves as a personal dashboard for users to manage their contributions to the platform.
+\section{Add New Place - Alternative Names}
+Users can provide alternative names for a place, along with their pronunciation. This section also includes options to indicate if the name is currently in use and to add historical data.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{useraccount.png}
-    \caption{User Account Page}
-    \label{fig:useraccount}
+    \includegraphics[width=\textwidth]{addnewPlaceAlternativeName.png}
+    \caption{Add New Place - Alternative Names}
+    \label{fig:addnewPlaceAlternativeName}
 \end{figure}
 
-The experience feed, shown in Figure \ref{fig:userfeed}, is a central feature of the application, where users can browse through posts shared by others. This feed is continuously updated with new experiences, enabling users to discover new places and insights from the community. The layout is designed to be visually appealing and easy to navigate, ensuring a pleasant browsing experience.
+\section{Add New Place - Geographical Features}
+Geographical details such as the feature type, latitude, longitude, elevation, area size, and population are entered here to give a comprehensive understanding of the place's physical characteristics.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{userfeed.png}
+    \includegraphics[width=\textwidth]{addnewPlaceGeo.png}
+    \caption{Add New Place - Geographical Features}
+    \label{fig:addnewPlaceGeo}
+\end{figure}
+
+\section{Add New Place - Administrative Details}
+Users can add administrative details such as the local government, state, country code, country, and administrative level to provide more context about the governance of the place.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{addNewPlaceAdmDetails.png}
+    \caption{Add New Place - Administrative Details}
+    \label{fig:addNewPlaceAdmDetails}
+\end{figure}
+
+\section{Experience Feed}
+Users can view and share their experiences about different places. The feed displays user posts along with the date and time they were shared, providing a platform for users to share their stories and insights.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{experienceFeed.png}
     \caption{Experience Feed}
-    \label{fig:userfeed}
+    \label{fig:experienceFeed}
 \end{figure}
 
-Figure \ref{fig:placedetails} shows the place details page that users are directed to after a search. This page provides a map of the location, detailed descriptions, and user reviews. The integration of a map enhances the usability of the platform by helping users visualize the location and its surroundings.
+\section{Share Your Experience}
+This section allows users to post their personal experiences about places they have visited. They can share their stories, photos, and videos to help others learn more about these places.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{placedetails.png}
-    \caption{Place Details Page}
-    \label{fig:placedetails}
+    \includegraphics[width=\textwidth]{shareYourexperience.png}
+    \caption{Share Your Experience}
+    \label{fig:shareYourexperience}
 \end{figure}
 
-Administrators of the platform have access to a comprehensive dashboard, as shown in Figure \ref{fig:admindashboard}. This dashboard presents various statistics in graphical formats, such as bar charts and pie charts. These visualizations help administrators monitor the platform's activity, including the member with the highest number of posts and the most visited places.
+\section{Administrator Login}
+Administrators have a separate login page to access additional functionalities for managing the application. This ensures secure access to administrative features.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{admindashboard.png}
-    \caption{Admin Dashboard with Statistics}
-    \label{fig:admindashboard}
+    \includegraphics[width=\textwidth]{adminLogin.png}
+    \caption{Administrator Login}
+    \label{fig:adminLogin}
 \end{figure}
 
-Administrators are also responsible for approving or rejecting user posts. Figure \ref{fig:approveposts} displays the user posts management page, where administrators can view all submitted posts and their current status. This page allows admins to ensure that only appropriate content is published on the platform.
+\section{Administrator Dashboard}
+The admin dashboard provides an overview of various metrics and functionalities that administrators can manage. This includes user management, content moderation, and site analytics.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{approveposts.png}
-    \caption{Admin Page for Approving or Rejecting Posts}
-    \label{fig:approveposts}
+    \includegraphics[width=\textwidth]{adminDash.png}
+    \caption{Administrator Dashboard}
+    \label{fig:adminDash}
 \end{figure}
 
-Furthermore, administrators can manage user statuses through the admin view of user statuses, depicted in Figure \ref{fig:seeusersstatus}. This functionality allows admins to track active members, their post counts, and their last seen activity, thereby maintaining an organized and well-functioning user base.
+\section{Administrator Dashboard - Extended View}
+A more detailed view of the admin dashboard with additional metrics and options. Administrators can perform advanced tasks and get a deeper insight into the site's performance.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{seeusersstatus.png}
-    \caption{Admin View of User Statuses}
-    \label{fig:seeusersstatus}
+    \includegraphics[width=\textwidth]{adminDash2.png}
+    \caption{Administrator Dashboard - Extended View}
+    \label{fig:adminDash2}
 \end{figure}
 
-Lastly, the platform enables administrators to add new place details through a dedicated form, as illustrated in Figure \ref{fig:addnewplace}. This form allows admins to input essential information about new locations, such as the place name, postcode, year founded, and a description. Adding new places helps in expanding the platform's database and providing users with more options to explore.
+\section{Admin Posts Management}
+Administrators can manage user posts, including viewing, editing, and deleting posts if necessary. This ensures the content remains appropriate and useful for all users.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{addnewplace.png}
-    \caption{Form to Add New Place Details}
-    \label{fig:addnewplace}
+    \includegraphics[width=\textwidth]{adminPOSTS.png}
+    \caption{Admin Posts Management}
+    \label{fig:adminPOSTS}
 \end{figure}
-
-These screenshots collectively demonstrate the comprehensive capabilities and functionalities of our application. They highlight how users can interact with the platform to share and discover experiences, while administrators can manage content and users effectively. This chapter serves as a practical guide to understanding the user experience and the administrative controls within the application.
