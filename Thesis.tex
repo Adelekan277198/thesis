@@ -41,7 +41,11 @@
 
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{hyperref}
+\usepackage[pdftex,bookmarks,breaklinks,unicode]{hyperref}
+
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{lscape}
 
 %% To obtain Polish letters in PDF (and not conglomerates) we use the tgterms font package.
 %% This package defines Times font clones with the following shapes: normal, bold, italic, bold italic.
@@ -485,9 +489,6 @@ captionpos=t
 %\pdftrue \fi
 \ifpdf
  \usepackage{datetime2} %INFO: package needed to obtain and format the date
- \usepackage[pdftex,bookmarks,breaklinks,unicode]{hyperref}
- \usepackage[pdftex]{graphicx}
- \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png} % after declaring the extensions, you will be able to insert files with graphics without having to provide these extensions in their names
 \pdfcompresslevel=9
 \pdfoutput=1
 
