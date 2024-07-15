@@ -39,12 +39,7 @@
 %\usepackage{soul} % package with commands for underlining, underlining, highlighting text (rather unnecessary)
 \usepackage{ebgaramond} % garamond font package, needed only for the title page, must appear before the tgtermes package
 
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage[pdftex,bookmarks,breaklinks,unicode]{hyperref}
-
-\documentclass{report}
-\usepackage{graphicx}
+%\usepackage{float}
 \usepackage{lscape}
 
 %% To obtain Polish letters in PDF (and not conglomerates) we use the tgterms font package.
@@ -488,9 +483,13 @@ captionpos=t
 %\pdfoutput=1 % we are running PDFLaTeX
 %\pdftrue \fi
 \ifpdf
- \usepackage{datetime2} %INFO: package needed to obtain and format the date
+ \usepackage{datetime2} % INFO: pakiet potrzeby do uzyskania i sformatowania daty
+ \usepackage[pdftex,bookmarks,breaklinks,unicode]{hyperref}
+ \usepackage[pdftex]{graphicx}
+ \DeclareGraphicsExtensions{.pdf,.jpg,.mps,.png} % po zadeklarowaniu rozszerzeń można będzie wstawiać pliki z grafiką bez konieczności podawania tych rozszerzeń w ich nazwach
 \pdfcompresslevel=9
 \pdfoutput=1
+
 
 % INFO: A well-prepared PDF document is one that contains metadata.
 %       The metadata fields that will be included in the PDF document are declared below.
@@ -849,7 +848,7 @@ Speciality: & {\bfseries \@specjalnosc}\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Mastertrue % INFO: comment this out if this is engineering thesis
 
-\title{Badanie ewolucji nazw miejsc towarzyszącej przekształceniu Edo w Benin City przy użyciu narzędzi informatycznych}
+\title{Badanie ewolucji nazw miejsc towarzyszącej przekształceniu Edo w~Benin City przy użyciu narzędzi informatycznych}
 \titleShort{Studying the evolution of place names accompanying ...}
 \titleEN{Studying the evolution of place names accompanying the transformation of Edo into Benin City using IT tools}
 \author{Akeem Adedotun Adelekan}
