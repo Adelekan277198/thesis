@@ -32,17 +32,19 @@ The system shall be capable of handling large volumes of data efficiently. Data 
 \subsubsection{User Roles and Security}
 Access to the system is role-based, providing different levels of access to the information system for users and administrators. Guests can only search and view place name details. Signed-up users can post comments, and add new place names. Administrators have the authority to approve user posts, modifications and suspend users. To ensure confidentiality and integrity, user passwords are encrypted within the system. Additionally, robust measures are in place to prevent unauthorized access and data breaches.
 
-The system supports the following user roles with their specific functions:
-\begin{itemize}
-\item \textbf{Guests} -- are greeted with a search bar that enables them to look up place names and access information about geographical features, alternative names with voice recordings, and administrative details in a table format. They are unable to make posts or submit new place names.
-\item \textbf{Users} -- register through a registration form and can log in, reset their passwords if forgotten, and share their experiences by creating posts related to a place. They can also add new place names with detailed information. All user-generated content, such as posts and new place names, must be approved by an admin before becoming visible to other users.
-\item \textbf{Admins} -- have a separate login form that directs them to a dedicated dashboard. In this dashboard, admins can approve or reject posts and place names, make users inactive or remove them, and see statistics about the data, such as the number of posts created and their associations with place names.
-\end{itemize}
+The system supports the following user roles with their specific functionalities:
+
+1. **Guests**: Guests are greeted with a search bar that enables them to look up place names and access information about geographical features, alternative names with voice recordings, and administrative details in a table format. They are unable to make posts or submit new place names.
+
+2. **Users**: Users register through a registration form and can log in, reset their passwords if forgotten, and share their experiences by creating posts related to a place. They can also add new place names with detailed information. All user-generated content, such as posts and new place names, must be approved by an admin before becoming visible to other users.
+
+3. **Admins**: Admins have a separate login form that directs them to a dedicated dashboard. In this dashboard, admins can approve or reject posts and place names, make users inactive or remove them, and see statistics about the data, such as the number of posts created and their associations with place names.
+
 
 \subsection{Data Model Diagram and Description}
 Below is the model schematic diagram that provides overall model functionality features:
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{model_schema.png}
     \caption{Data Model (Database Schematic) Diagram}
@@ -50,13 +52,13 @@ Below is the model schematic diagram that provides overall model functionality f
 \end{figure}
 
 \subsubsection{Diagram Descriptions}
-The \texttt{administrativedetails} table stores administrative area information such as country, state, and local government. The \texttt{administrative\_ass} table stores associations between administrative areas and specific identifiers (location\_id) during a specific period. The \texttt{admin\_actions} table tracks actions taken by administrators on the system, including affected users or posts. The \texttt{alternativenames} table stores alternative names for locations. The \texttt{comments} table stores information about comments made on posts, including the content and the user who created it. The \texttt{geographicalfeatures} table stores geographical features associated with locations, including type, location data, and descriptions. The \texttt{historical\_data} table stores historical data and events related to locations, including event descriptions, sources, and dates. The \texttt{locations} table contains information about specific place names, including name, postal code, founding year, and descriptions. The \texttt{posts} table stores posts created by users, including content, approval status, and creation time. The \texttt{users} table stores information about users, including username, password, email, profile information, and account status.
+The \textit{administrativedetails} table stores administrative area information such as country, state, and local government. The \textit{administrative\_ass} table stores associations between administrative areas and specific identifiers (location\_id) during a specific period. The \textit{admin\_actions} table tracks actions taken by administrators on the system, including affected users or posts. The \textit{alternativenames} table stores alternative names for locations. The \textit{comments} table stores information about comments made on posts, including the content and the user who created it. The \textit{geographicalfeatures} table stores geographical features associated with locations, including type, location data, and descriptions. The \textit{historical\_data} table stores historical data and events related to locations, including event descriptions, sources, and dates. The \textit{locations} table contains information about specific place names, including name, postal code, founding year, and descriptions. The \textit{posts} table stores posts created by users, including content, approval status, and creation time. The \textit{users} table stores information about users, including username, password, email, profile information, and account status.
 
 \section{Design Specification}
 The Place Names Information System (PNIS) is designed to record, manage, and analyze data related to place names and their attributes. The system aims to provide a comprehensive platform for users to explore and learn about various place names in Edo-Benin City. Below is a detailed blueprint of the system architecture, illustrating how the requirements were implemented.
 
 \subsection{System Architecture Overview}
-The architecture of PNIS is designed to be modular, scalable, and secure, ensuring that it can efficiently handle large volumes of data and provide a robust user experience. The system is divided into several layers, each responsible for specific functions as described below.
+The architecture of PNIS is designed to be modular, scalable, and secure, ensuring that it can efficiently handle large volumes of data and provide a robust user experience. The system is divided into several layers, each responsible for specific functionalities:
 
 \subsubsection{Presentation Layer}
 Developed using HTML, CSS, JavaScript, and AJAX to create a responsive and user-friendly interface. The front-end application will interact with the back-end services through RESTful APIs.
@@ -77,15 +79,12 @@ Implements role-based access control (RBAC) to ensure that only authorized users
 \subsubsection{Workflow and Processes}
 To illustrate the workflow and processes within the PNIS, a BPMN (Business Process Model and Notation) diagram is used. This diagram provides a visual representation of the interactions between different user roles (guests, users, admins) and the system functionalities.
 
-\newpage
-\begin{landscape}
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\linewidth, height=0.8\textheight, keepaspectratio]{bpmn.png}
+    \includegraphics[width=1.0\textwidth, keepaspectratio]{bpmn.png}
     \caption{BPMN Diagram for Place Names Information System}
     \label{fig:bpmn}
 \end{figure}
-\end{landscape}
 
 The BPMN diagram depicts the following key processes:
 \begin{itemize}
