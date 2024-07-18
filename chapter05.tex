@@ -3,7 +3,7 @@
 
 
 \section{Requirements Specification}
-The System Requirements Specification (SRS) provides a comprehensive and detailed description of the Place Names Information System (PNIS). It serves as a blueprint for recording data, describing functionalities, and setting performance and design constraints. This SRS ensures a clear understanding of the system's objectives, requirements, and users' expectations, facilitating a systematic approach to development. This document also helps maintain consistency and ensures that the application meets user needs and thesis goals.
+The System Requirements Specification (SRS) provides a comprehensive and detailed description of the Place Names Information System (PNIS). It serves as a blueprint for recording data, describing functionalities, and setting performance and design constraints. This SRS ensures a~clear understanding of the system's objectives, requirements, and users' expectations, facilitating a systematic approach to development. This document also helps maintain consistency and ensures that the application meets user needs and thesis goals.
 
 \subsection{Features}
 The PNIS connects with a database to store and retrieve information about place names, administrative areas, and other related aspects such as historical data, alternative names, geographical attributes, and user-generated information.
@@ -32,56 +32,40 @@ The system shall be capable of handling large volumes of data efficiently. Data 
 \subsubsection{User Roles and Security}
 Access to the system is role-based, providing different levels of access to the information system for users and administrators. Guests can only search and view place name details. Signed-up users can post comments, and add new place names. Administrators have the authority to approve user posts, modifications and suspend users. To ensure confidentiality and integrity, user passwords are encrypted within the system. Additionally, robust measures are in place to prevent unauthorized access and data breaches.
 
-The system supports the following user roles with their specific functionalities:
-
-1. **Guests**: Guests are greeted with a search bar that enables them to look up place names and access information about geographical features, alternative names with voice recordings, and administrative details in a table format. They are unable to make posts or submit new place names.
-
-2. **Users**: Users register through a registration form and can log in, reset their passwords if forgotten, and share their experiences by creating posts related to a place. They can also add new place names with detailed information. All user-generated content, such as posts and new place names, must be approved by an admin before becoming visible to other users.
-
-3. **Admins**: Admins have a separate login form that directs them to a dedicated dashboard. In this dashboard, admins can approve or reject posts and place names, make users inactive or remove them, and see statistics about the data, such as the number of posts created and their associations with place names.
-
-
-\subsection{Data Model Diagram and Description}
-Below is the model schematic diagram that provides overall model functionality features:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{model_schema.png}
-    \caption{Data Model (Database Schematic) Diagram}
-    \label{fig:enter-label}
-\end{figure}
-
-\subsubsection{Diagram Descriptions}
-The \textit{administrativedetails} table stores administrative area information such as country, state, and local government. The \textit{administrative\_ass} table stores associations between administrative areas and specific identifiers (location\_id) during a specific period. The \textit{admin\_actions} table tracks actions taken by administrators on the system, including affected users or posts. The \textit{alternativenames} table stores alternative names for locations. The \textit{comments} table stores information about comments made on posts, including the content and the user who created it. The \textit{geographicalfeatures} table stores geographical features associated with locations, including type, location data, and descriptions. The \textit{historical\_data} table stores historical data and events related to locations, including event descriptions, sources, and dates. The \textit{locations} table contains information about specific place names, including name, postal code, founding year, and descriptions. The \textit{posts} table stores posts created by users, including content, approval status, and creation time. The \textit{users} table stores information about users, including username, password, email, profile information, and account status.
+The system supports the following user roles with their specific functions:
+\begin{itemize}
+    \item \textbf{Guests} -- are greeted with a search bar that enables them to look up place names and access information about geographical features, alternative names with voice recordings, and administrative details in a table format. They are unable to make posts or submit new place names.
+\item \textbf{Users} -- register through a registration form and can log in, reset their passwords if forgotten, and share their experiences by creating posts related to a place. They can also add new place names with detailed information. All user-generated content, such as posts and new place names, must be approved by an admin before becoming visible to other users.
+\item \textbf{Admins} -- have a separate login form that directs them to a dedicated dashboard. In this dashboard, admins can approve or reject posts and place names, make users inactive or remove them, and see statistics about the data, such as the number of posts created and their associations with place names.
+\end{itemize}
 
 \section{Design Specification}
 The Place Names Information System (PNIS) is designed to record, manage, and analyze data related to place names and their attributes. The system aims to provide a comprehensive platform for users to explore and learn about various place names in Edo-Benin City. Below is a detailed blueprint of the system architecture, illustrating how the requirements were implemented.
 
 \subsection{System Architecture Overview}
-The architecture of PNIS is designed to be modular, scalable, and secure, ensuring that it can efficiently handle large volumes of data and provide a robust user experience. The system is divided into several layers, each responsible for specific functionalities:
-
-\subsubsection{Presentation Layer}
-Developed using HTML, CSS, JavaScript, and AJAX to create a responsive and user-friendly interface. The front-end application will interact with the back-end services through RESTful APIs.
-
-\subsubsection{Application Layer}
-Uses PHP for server-side processing, handling requests from the front end and interacting with the database. The server will manage user sessions, authenticate users, and process CRUD operations.
-
-Facilitates communication between the front-end application and the database. The API will support operations for user management, place name management, and content management.
-
-\subsubsection{Data Layer}
-A MySQL relational database designed to store and manage all data related to place names, administrative details, user information, and more. The database schema is normalized to reduce redundancy and improve data integrity.
-
-Handles the integration of data from various sources, including public APIs (e.g., OpenStreetMap), manual data entry, and bulk uploads. This module ensures that data is accurately imported and mapped to the database schema.
-
-\subsubsection{Security Layer}
-Implements role-based access control (RBAC) to ensure that only authorized users can access specific features. User passwords are securely stored using hashing algorithms. Guests can search and view place name details, users can create posts and add new place names, and admins can manage posts, place names, and user accounts.
-
-\subsubsection{Workflow and Processes}
-To illustrate the workflow and processes within the PNIS, a BPMN (Business Process Model and Notation) diagram is used. This diagram provides a visual representation of the interactions between different user roles (guests, users, admins) and the system functionalities.
-
+The architecture of PNIS is designed to be modular, scalable, and secure, ensuring that it can efficiently handle large volumes of data and provide a robust user experience. 
+The system is divided into several layers, each responsible for specific functions:
+\begin{itemize}
+\item \textbf{Presentation Layer} -- was developed using HTML, CSS, JavaScript, and AJAX to create a~responsive and user-friendly interface. The front-end application will interact with the back-end services through RESTful APIs.
+\item \textbf{Application Layer}  -- uses PHP for server-side processing, handling requests from the front end and interacting with the database. The server will manage user sessions, authenticate users, and process CRUD operations.
+\item \textbf{Data Layer} -- a MySQL relational database designed to store and manage all data related to place names, administrative details, user information, and more. The database schema is normalized to reduce redundancy and improve data integrity. Figure~\ref{fig:dataModel} shows the data model designed to hold the collected data records. The meaning of particular tables is as follows.
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=1.0\textwidth, keepaspectratio]{bpmn.png}
+    \includegraphics[width=1\linewidth]{model_schema.png}
+    \caption{Data Model}
+    \label{fig:dataModel}
+\end{figure}
+The \texttt{administrativedetails} table stores administrative area information such as country, state, and local government. The \texttt{administrative\_ass} table stores associations between administrative areas and specific identifiers (\texttt{location\_id}) during a specific period. The \texttt{admin\_actions} table tracks actions taken by administrators on the system, including affected users or posts. The \texttt{alternativenames} table stores alternative names for locations. The \texttt{comments} table stores information about comments made on posts, including the content and the user who created it. The \texttt{geographicalfeatures} table stores geographical features associated with locations, including type, location data, and descriptions. The \texttt{historical\_data} table stores historical data and events related to locations, including event descriptions, sources, and dates. The \texttt{locations} table contains information about specific place names, including name, postal code, founding year, and descriptions. The \texttt{posts} table stores posts created by users, including content, approval status, and creation time. The \texttt{users} table stores information about users, including username, password, email, profile information, and account status.
+\item \textbf{Security Layer} -- implements role-based access control (RBAC) to ensure that only authorized users can access specific features. User passwords are securely stored using hashing algorithms. Guests can search and view place name details, users can create posts and add new place names, and admins can manage posts, place names, and user accounts.
+\end{itemize}
+
+The system facilitates communication between the front-end application and the database. The designed API support operations for user management, place name management, and content management. The system handles the integration of data from various sources, including public APIs (e.g., OpenStreetMap), manual data entry, and bulk uploads. This module ensures that data is accurately imported and mapped to the database schema.
+
+\subsection{Workflow and Processes}
+To illustrate the workflow and processes within the PNIS, a BPMN (Business Process Model and Notation) diagram is used. This diagram provides a visual representation of the interactions between different user roles (guests, users, admins) and the system functions.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=.9\textwidth, keepaspectratio]{bpmn.png}
     \caption{BPMN Diagram for Place Names Information System}
     \label{fig:bpmn}
 \end{figure}
@@ -101,7 +85,7 @@ The system provides a robust user management framework that allows users to regi
 The place name management functionality enables users to search for and discover place names using various criteria, such as name, postal code, and alternative names. The search functionality is optimized for quick data retrieval, ensuring users can find relevant information promptly. Detailed information about each place name, including its description, founding year, and alternative names, is displayed. Authorized users have the capability to add new place names, complete with relevant details, ensuring the database remains comprehensive and up-to-date.
 
 \subsubsection{Content Management}
-The content management system allows users to create and submit posts related to specific place names. These posts can include descriptions, historical data, and personal experiences, enriching the dataset with diverse perspectives. An approval workflow is implemented, whereby administrators review submitted posts and approve or reject them based on predefined criteria. This process ensures that only relevant and accurate content is published. Additionally, users can comment on posts, fostering community interaction and engagement. Comments are moderated to maintain quality and relevance, ensuring the platform remains a valuable resource for all users.
+The content management system allows users to create and submit posts related to specific place names. These posts can include descriptions, historical data, and personal experiences, enriching the dataset with diverse perspectives. An approval workflow is implemented, whereby administrators review submitted posts and approve or reject them based on predefined criteria. Thus only relevant and accurate content is published. Additionally, users can comment on posts, fostering community interaction and engagement. Comments are moderated to maintain quality and relevance, ensuring the platform remains a valuable resource for all users.
 
 \subsubsection{Administrative Functions}
 Administrative functions are designed to provide comprehensive control over the system's data and user interactions. Admin users can manage user accounts, including activating or deactivating accounts and updating user information as needed. Data management capabilities allow administrators to update administrative details, manage place names, and oversee the overall data integrity. This ensures that the system remains accurate, reliable, and useful for all stakeholders.
@@ -123,7 +107,7 @@ MySQL was chosen as the relational database management system (RDBMS). The datab
 \subsection{Data Acquisition and Integration}
 The system integrates with public APIs, such as OpenStreetMap, to fetch place data. Custom APIs were developed to connect with external data sources, ensuring data is retrieved in a structured and consistent format. User-friendly interfaces for manual data entry were also developed, allowing the enrichment of the database with user entries under specified standards.
 
-Bulk upload capabilities were enabled, allowing the import of data files (e.g., CSV, Excel) from trusted sources such as libraries and local post offices. Data mapping techniques were used to align imported data with the database schema, ensuring proper field matching and type conversion.
+Bulk upload capabilities were enabled, allowing the import of data files (e.g., CSV, Excel) from trusted sources. Data mapping techniques were used to align imported data with the database schema, ensuring proper field matching and type conversion.
 
 \subsection{Data Preprocessing and Storage}
 To ensure data quality, form validations, and manual review processes were implemented to identify and merge duplicate records, handle missing values, and correct errors. Techniques such as imputation and normalization were used to maintain data integrity.
