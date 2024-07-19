@@ -1,21 +1,22 @@
 \chapter{Introduction}
 \section{Overview}
-The city historically known as Edo, situated in present-day Nigeria, underwent a significant transformation, evolving into what is now recognized as Benin City. According to ~\cite{Michael2023}, this transformation carries profound implications, reflecting shifts in political, cultural, and socio-economic dynamics within the region. The renaming of Edo to Benin City is deeply rooted in the history of the Benin Empire, a powerful entity that thrived in the region from the 13th to the 19th century~\cite{egharevba1968short} 
+The city historically known as Edo, situated in present-day Nigeria, underwent a significant transformation, evolving into what is now recognized as Benin City. This transformation carries profound implications, reflecting shifts in political, cultural, and socio-economic dynamics within the region~\cite{Michael2023}. The renaming of Edo to Benin City is deeply rooted in the history of the Benin Empire, a powerful entity that thrived in the region from the 13th to the 19th century~\cite{egharevba1968short}. 
 
-Colonialism significantly influenced the evolution of Edo into Benin City, particularly through the imposition of British administrative structures and renaming practices. The imposition of British colonial rule in Nigeria resulted in substantial changes, including the renaming of cities and landmarks to align with British influence and control~\cite{falola2008history}. This historical context underscores the significance of studying the evolution of place names and their associated meanings within the broader narrative of urban development and cultural change.
+Colonialism significantly influenced the evolution of Edo into Benin City, particularly through the imposition of British administrative structures and renaming practices. This resulted in substantial changes, including the renaming of cities and landmarks to align with British influence and control~\cite{falola2008history}. This historical context underscores the significance of studying the evolution of place names and their associated meanings within the broader narrative of urban development and cultural change.
 Place names serve as more than mere identifiers; they embody the identity, history, and cultural heritage of a community~\cite{Gelling}. Through the lens of place names, one can trace the historical, and socio-political forces that have shaped a particular region over time. The evolution of place names often mirrors broader urbanization trends and demographic shifts, reflecting the dynamic nature of human settlements.
 
 This study adopts an interdisciplinary approach, combining historical research and the utilization of information technology (IT) tools to design a data model to identify the historical evolution of places and names of Edo states using data acquired from various sources. Leveraging Geographic Information System (GIS) software and historical data samples from locals, this research aims to support the understanding of socio-political dynamics by creating a data model and providing a web system to store detailed information on the region.
 The study focuses on developing a data model to identify and manage place name entities from various sources and extends the model to preserve pronunciations through recorded voices.
 
-While conducting research on the evolution of place names, certain challenges and limitations must be acknowledged. These include gaps in historical records and the legacy of colonial interventions on indigenous naming practices Moreover, engaging with local communities and stakeholders is essential for contextualizing the study within the lived experiences and cultural perspectives of the people. 
-Through this study, I seek to contribute to a deeper understanding of the historical, cultural dimensions of the transformation of Edo into Benin City. Moreover, engaging with local communities is essential for contextualizing the study within the lived experiences and cultural perspectives of the people. Through this study, I seek to contribute to a deeper understanding of the historical and cultural dimensions of the transformation of Edo into Benin City. By building a web system, I aim to create a repository for storing place names and details, facilitating the preservation and accessibility of this important historical information.
+While conducting research on the evolution of place names, certain challenges and limitations must be acknowledged. These include gaps in historical records and the legacy of colonial interventions on indigenous naming practices. Moreover, engaging with local communities and stakeholders is essential for contextualizing the study within the lived experiences and cultural perspectives of the people. 
+
+Through this study, I seek to contribute to a deeper understanding of the historical, cultural dimensions of the transformation of Edo into Benin City. Moreover, engaging with local communities is essential for contextualizing the study within the lived experiences and cultural perspectives of the people. Through this study, I seek to contribute to a~deeper understanding of the historical and cultural dimensions of the transformation of Edo into Benin City. By building a web system, I aim to create a repository for storing place names and details, facilitating the preservation and accessibility of this important historical information.
 
 \section{Goal and Scope}
-\subsubsection{Objective of the Study}
+\subsection{Objective of the Study}
 The objective of this study is to utilize Information Technology (IT) tools to systematically trace the historical evolution of place names in the region encompassing Edo's transformation into Benin City. By integrating various datasets from different relevant sources, the study aims to create a digital database and Place Name Information System for storing and managing toponyms. These datasets, obtained from multiple providers, have been formatted for optimal use within the system. This objective will leverage IT tools to enhance data analysis and visualization capabilities.
 This study provides an IT tool that can be used to analyze and interpret the factors influencing the changes in place names during the transformation of Edo into Benin City. By integrating GIS spatial analysis, the study aims to provide a platform that can enable users to access and display toponyms relating to Edo or Benin City. Leveraging IT tools will enable a more nuanced understanding of the underlying drivers behind the renaming and recontextualization of geographical features within the region's urban landscape.
-\subsubsection{Significance of the Study}
+\subsection{Significance of the Study}
 The study of the evolution of place names accompanying the transformation of Edo into Benin City holds significant cultural value. By documenting and analyzing historical place names, the study contributes to the preservation of cultural heritage and indigenous knowledge. Understanding the cultural significance of place names allows for the retention and celebration of the region's diverse heritage. 
 
 The renaming and recontextualization of place names reflect broader processes of urban development and identity formation. By examining the details about these place names, the study can help provide insights into the socio-economic, political, and cultural dynamics shaping the urban landscape of Benin City. Understanding the historical trajectory of place names contributes to a deeper understanding of the city's identity and spatial organization.
@@ -26,13 +27,18 @@ The study overviews the evolution of place names accompanying the transformation
 
 The comprehensive digital database that provides a detailed overview of place names in the region can be of significant importance. This database does not only document and preserve historical and cultural information but also serves as a dynamic platform that can expand over time with contributions from the public if it is deployed and made available for public use.
 
-There are existing gazetteer models that are use for searching place names and seeing their details such as geographical information and historical context; sample of such models are \cite{hill1999implementation}
-GeoNames: A comprehensive database containing geographical names and locations with various administrative levels, alternative names, and coordinates, OpenStreetMap (OSM) Nominatim: A geocoding service using OSM data, providing detailed place names, administrative details, geographic coordinates, and user-contributed content\cite{osm_geonames_2016}.
-Natural Earth Data: A public domain map dataset offering detailed information on populated places, administrative boundaries, geographic coordinates, and historical events. However, this research model provides structured details in a table format, with added features such as listening to pronunciations with voice recordings and an interactive map to visualize the region. Additionally, the web system provides functionality that allow users to contribute and share their experiences about the region, enriching the database with contemporary perspectives and community insights\cite{natural_earth_data}.
+There are existing gazetteer models that are use for searching place names and seeing their details such as geographical information and historical context. Sample of such models are: 
+\begin{itemize}
+\item Alexandria Digital Library (ADL) -- a geolibrary where a primary attribute of collection objects is their location on Earth, represented by geographic footprints. A footprint is the latitude and longitude values that represent a point, a bounding box, a linear feature, or a complete polygonal boundary \cite{hill1999implementation};
+\item GeoNames -- a comprehensive database containing geographical names and locations with various administrative levels, alternative names, and coordinates~\cite{geonames};
+\item OpenStreetMap (OSM) -- a geocoding service using OSM data, providing detailed place names, administrative details, geographic coordinates, and user-contributed content~\cite{osm_geonames_2016}; 
+\item Natural Earth Data -- a public domain map dataset offering detailed information on populated places, administrative boundaries, geographic coordinates, and historical events \cite{natural_earth_data}. 
+\end{itemize}
+However, this research model provides structured details in a table format, with added features such as listening to pronunciations with voice recordings and an interactive map to visualize the region. Additionally, the web system provides functionality that allow users to contribute and share their experiences about the region, enriching the database with contemporary perspectives and community insights.
 
 The research contribution features a customize fields like source, description, and place spatial, providing flexibility to include varied and detailed information about locations which is not available on some of the other models. It tracks periods associated with administrative details, offering a more detailed temporal perspective than other models. It allows tracking and managing user contributions within the database and includes alternative names and their pronunciations in a dedicated table, allowing for rich linguistic and cultural representation.
 
-\subsubsection{Scope of the Study}
+\subsection{Scope of the Study}
 The geographical scope of the study encompasses the region corresponding to the historical territory of Edo and its transformation into Benin City. This includes the urban and peri-urban areas within the city limits of Benin City and its surrounding environs. The study considers place names within this defined geographical boundary.
 
 
@@ -42,33 +48,25 @@ The study explores the cultural dimensions of place names, including indigenous 
 The study employs an interdisciplinary approach, integrating historical research and Information Technology (IT) tools. Utilizing Geographic Information System (GIS) software, and digitized historical records, the study seeks to systematically trace and analyze place names.
 
 \section{Thesis Structure}
+This thesis is organized into seven chapters, each addressing a different aspect of the research. Below is an overview of the contents of each chapter.
 
-This thesis is organized into seven chapters, each addressing a different aspect of the research. Below is an overview of the structure of the thesis, providing a brief description of the contents of each chapter:
-
-\textbf{Chapter 1: Introduction}
-
+\textbf{Chapter 1: Introduction}\newline
 This chapter provides a general introduction to the research topic. It outlines the overview, the goal, and the scope of the research. Additionally, it sets the context for the study and introduces the structure of the thesis.
 
-\textbf{Chapter 2: Problem Statement}
-
+\textbf{Chapter 2: Problem Statement}\newline
 This chapter delves into the problem the research aims to address. It provides a historical overview of Edo and Benin City, examines studies on the evolution of place names, discusses urban development and identity formation in Africa, and highlights the use of IT tools in historical research.
 
-\textbf{Chapter 3: Methodology}
-
+\textbf{Chapter 3: Methodology}\newline
 This chapter describes the research design and approach, including the data collection methods, data acquisition techniques, data preprocessing techniques, ethical considerations, and research limitations. It sets the foundation for the systematic investigation conducted in this study.
 
-\textbf{Chapter 4: Data Analysis}
-
+\textbf{Chapter 4: Data Analysis}\newline
 In this chapter, the collected data is analyzed. It includes the analysis of historical documents, the sources of data and processing, the main outcomes of the research, and the visualization of place name evolution. This chapter presents the findings from the data analysis.
 
-\textbf{Chapter 5: System Requirements, Design, and Implementation}
-
+\textbf{Chapter 5: System Requirements, Design, and Implementation}\newline
 This chapter details the system requirements, design, and implementation of the Place Names Information System. It covers the requirements specification, design specification, and implementation details, including front-end development, back-end development, data acquisition and integration, data preprocessing and storage, and security implementation.
 
-\textbf{Chapter 6: Running Examples}
-
+\textbf{Chapter 6: Running Examples}\newline
 This chapter provides practical examples of the application in use. It includes screenshots demonstrating user registration, sharing experiences, viewing the experience feed, accessing the user account page, and the admin dashboard for managing posts and user statuses. The examples illustrate the functionality and user interface of the system.
 
-\textbf{Chapter 7: Conclusion}
-
+\textbf{Chapter 7: Conclusion}\newline
 The final chapter summarizes the research findings, discusses their implications, and provides recommendations for future work. It concludes the thesis by reflecting on the research objectives and the extent to which they were achieved.
